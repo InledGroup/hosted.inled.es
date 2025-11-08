@@ -1,89 +1,45 @@
 ---
-import fs from 'fs';
-import path from 'path';
-
-const publicDir = path.join(process.cwd(), 'public');
-
-function getDirectoryContents(dirPath: string) {
-  try {
-    const items = fs.readdirSync(dirPath, { withFileTypes: true });
-
-    const folders = items
-      .filter(item => item.isDirectory())
-      .map(item => ({
-        name: item.name,
-        type: 'folder' as const,
-        path: path.relative(publicDir, path.join(dirPath, item.name))
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-
-    const files = items
-      .filter(item => item.isFile())
-      .map(item => {
-        const fullPath = path.join(dirPath, item.name);
-        const stats = fs.statSync(fullPath);
-        const ext = path.extname(item.name).toLowerCase();
-        const isImage = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'].includes(ext);
-
-        return {
-          name: item.name,
-          type: 'file' as const,
-          path: path.relative(publicDir, fullPath),
-          size: stats.size,
-          isImage,
-          extension: ext
-        };
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
-
-    return [...folders, ...files];
-  } catch (error) {
-    return [];
-  }
-}
-
-function getAllFilesRecursive(dirPath: string, basePath = ''): any[] {
-  try {
-    const items = fs.readdirSync(dirPath, { withFileTypes: true });
-    let allItems: any[] = [];
-
-    for (const item of items) {
-      const fullPath = path.join(dirPath, item.name);
-      const relativePath = path.join(basePath, item.name);
-
-      if (item.isDirectory()) {
-        allItems.push({
-          name: item.name,
-          type: 'folder',
-          path: relativePath
-        });
-        allItems = allItems.concat(getAllFilesRecursive(fullPath, relativePath));
-      } else {
-        const stats = fs.statSync(fullPath);
-        const ext = path.extname(item.name).toLowerCase();
-        const isImage = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'].includes(ext);
-
-        allItems.push({
-          name: item.name,
-          type: 'file',
-          path: relativePath,
-          size: stats.size,
-          isImage,
-          extension: ext
-        });
-      }
-    }
-
-    return allItems;
-  } catch (error) {
-    return [];
-  }
-}
+import fileIndex from '../data/file-index.json';
 
 const currentPath = Astro.url.searchParams.get('path') || '';
-const currentDir = path.join(publicDir, currentPath);
-const items = getDirectoryContents(currentDir);
-const allItems = getAllFilesRecursive(publicDir);
+
+// Filtrar items para el directorio actual
+function getDirectoryContents(currentPath: string) {
+  const normalizedPath = currentPath.replace(/\\/g, '/');
+
+  if (!normalizedPath) {
+    // Mostrar items en la raíz (sin subdirectorios)
+    return fileIndex
+      .filter(item => !item.path.includes('/') && !item.path.includes('\\'))
+      .sort((a, b) => {
+        // Carpetas primero
+        if (a.type === 'folder' && b.type !== 'folder') return -1;
+        if (a.type !== 'folder' && b.type === 'folder') return 1;
+        return a.name.localeCompare(b.name);
+      });
+  }
+
+  // Mostrar items en el directorio especificado
+  const prefix = normalizedPath + '/';
+  return fileIndex
+    .filter(item => {
+      const itemPath = item.path.replace(/\\/g, '/');
+      if (!itemPath.startsWith(prefix)) return false;
+
+      // Solo items directamente en este directorio (no subdirectorios más profundos)
+      const relativePath = itemPath.substring(prefix.length);
+      return !relativePath.includes('/');
+    })
+    .sort((a, b) => {
+      // Carpetas primero
+      if (a.type === 'folder' && b.type !== 'folder') return -1;
+      if (a.type !== 'folder' && b.type === 'folder') return 1;
+      return a.name.localeCompare(b.name);
+    });
+}
+
+const items = getDirectoryContents(currentPath);
+const allItems = fileIndex;
 
 function formatBytes(bytes: number): string {
   if (bytes === 0) return '0 Bytes';
@@ -610,12 +566,7 @@ function formatBytes(bytes: number): string {
         return;
       }
 
-      // Buscar en todos los archivos recursivamente
-      const filtered = allItems.filter(item =>
-        item.name.toLowerCase().includes(searchTerm) ||
-        item.path.toLowerCase().includes(searchTerm)
-      );
-
+      // Filtrar items visibles por nombre
       items.forEach(item => {
         const itemName = item.getAttribute('data-name');
         if (itemName.includes(searchTerm)) {
