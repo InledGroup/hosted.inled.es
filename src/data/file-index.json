@@ -328,6 +328,14 @@
     "extension": ".png"
   },
   {
+    "name": "better.inled.svg",
+    "type": "file",
+    "path": "better.inled.svg",
+    "size": 1250150,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
     "name": "bloqmayus.png",
     "type": "file",
     "path": "bloqmayus.png",
