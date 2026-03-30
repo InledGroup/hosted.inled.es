@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const publicDir = path.join(__dirname, '../public');
+const publicDir = path.join(__dirname, '../public/1');
 const outputFile = path.join(__dirname, '../src/data/file-index.json');
 
 function getAllFilesRecursive(dirPath, basePath = '') {
