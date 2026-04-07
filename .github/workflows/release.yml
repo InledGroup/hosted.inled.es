@@ -1,0 +1,55 @@
+name: Create Clean Hostify Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'public/**'
+      - 'dist/**'
+
+jobs:
+  release:
+    if: "contains(github.event.head_commit.message, '[RELEASE]')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Clean up files
+        run: |
+          echo "Limpiando motor de Hostify..."
+          rm -rf public/
+          rm -rf dist/
+          rm -rf node_modules/
+          rm -rf .git/
+          rm -rf .github/
+          rm -f .env
+          rm -f .env.example
+          rm -f package-lock.json
+          # Eliminar cualquier otro archivo temporal o de configuración sensible
+          rm -rf .hostify_update/
+          echo "Limpieza completada."
+
+      - name: Zip engine
+        run: |
+          zip -r Hostify-Engine.zip .
+          echo "ZIP generado con éxito."
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ github.sha }}
+          name: Hostify Engine Release
+          body: |
+            Esta es una versión limpia del motor de Hostify generada automáticamente.
+            Excluye las carpetas `public/`, `dist/` y archivos de configuración sensibles.
+          draft: false
+          prerelease: false
+          files: Hostify-Engine.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

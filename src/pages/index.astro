@@ -1,5 +1,6 @@
 ---
 import fileIndex from '../data/file-index.json';
+import UploadModal from '../components/UploadModal.astro';
 
 const currentPath = Astro.url.searchParams.get('path') || '';
 
@@ -55,7 +56,7 @@ function formatBytes(bytes: number): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorador de Archivos - Public</title>
+  <title>Hostify</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * {
@@ -89,6 +90,20 @@ function formatBytes(bytes: number): string {
       backdrop-filter: blur(10px);
     }
 
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1.5rem;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
     .header h1 {
       font-size: 1.75rem;
       font-weight: 700;
@@ -96,7 +111,7 @@ function formatBytes(bytes: number): string {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
 
     .header h1 i {
@@ -307,6 +322,10 @@ function formatBytes(bytes: number): string {
       gap: 0.625rem;
     }
 
+    .item-actions .btn {
+      flex: 1;
+    }
+
     .btn {
       padding: 0.625rem 1rem;
       border: none;
@@ -315,7 +334,6 @@ function formatBytes(bytes: number): string {
       cursor: pointer;
       transition: all 0.2s ease;
       font-weight: 500;
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -432,7 +450,23 @@ function formatBytes(bytes: number): string {
 <body>
   <div class="container">
     <div class="header">
-      <h1><i class="fas fa-folder-open"></i> Explorador de Archivos</h1>
+      <div class="header-top">
+        <h1><i class="fas fa-rocket"></i> Hostify</h1>
+        <div class="header-actions">
+          <a href="/api/docs" class="btn btn-secondary" style="width: auto; padding: 0.75rem 1.5rem; text-decoration: none;">
+            <i class="fas fa-book"></i> API Docs
+          </a>
+          <a href="https://github.com/InledGroup/hosted.inled.es/releases/latest/download/Hostify-Engine.zip" class="btn btn-secondary" style="width: auto; padding: 0.75rem 1.5rem; text-decoration: none;">
+            <i class="fas fa-file-archive"></i> Hostify (.zip)
+          </a>
+          <button id="openUpdateHostifyBtn" class="btn btn-secondary" style="width: auto; padding: 0.75rem 1.5rem;">
+            <i class="fas fa-sync-alt"></i> Actualizar
+          </button>
+          <button id="openUploadBtn" class="btn btn-primary" style="width: auto; padding: 0.75rem 1.5rem;">
+            <i class="fas fa-cloud-upload-alt"></i> Subir
+          </button>
+        </div>
+      </div>
       <div class="breadcrumb">
         <a href="/"><i class="fas fa-home"></i> Public</a>
         {currentPath && currentPath.split('/').map((part, index, arr) => {
@@ -536,7 +570,9 @@ function formatBytes(bytes: number): string {
 
   <div id="toast" class="toast"></div>
 
-  <script define:vars={{ allItems }}>
+  <UploadModal currentPath={currentPath} />
+
+  <script is:inline define:vars={{ allItems }}>
     function copyUrl(url) {
       const fullUrl = window.location.origin + url;
       navigator.clipboard.writeText(fullUrl).then(() => {
@@ -548,37 +584,38 @@ function formatBytes(bytes: number): string {
 
     function showToast(message) {
       const toast = document.getElementById('toast');
-      toast.innerHTML = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
+      if (toast) {
+        toast.innerHTML = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
     }
 
-    const searchInput = document.getElementById('searchInput');
-    const items = document.querySelectorAll('.item');
-
-    searchInput.addEventListener('input', (e) => {
-      const searchTerm = e.target.value.toLowerCase();
-
-      if (searchTerm === '') {
-        items.forEach(item => item.classList.remove('hidden'));
-        return;
-      }
-
-      // Filtrar items visibles por nombre
-      items.forEach(item => {
-        const itemName = item.getAttribute('data-name');
-        if (itemName.includes(searchTerm)) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-    });
-
-    // Hacer la función copyUrl global
+    // Hacer funciones globales
     window.copyUrl = copyUrl;
+    window.showToast = showToast;
+
+    // Inicializar eventos
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+          const items = document.querySelectorAll('.item');
+          
+          items.forEach(item => {
+            const itemName = item.getAttribute('data-name') || '';
+            if (itemName.includes(searchTerm)) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      }
+    });
   </script>
 </body>
 </html>

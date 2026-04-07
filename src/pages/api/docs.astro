@@ -1,0 +1,98 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostify API | Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css">
+  <style>
+    body {
+      background: #0a0e27;
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+    }
+    
+    /* Tema Oscuro Real para Swagger */
+    .swagger-ui {
+      background: #0f1420;
+      color: #e4e7f1;
+    }
+    .swagger-ui .info .title, 
+    .swagger-ui .info p, 
+    .swagger-ui .info li,
+    .swagger-ui .opblock-tag,
+    .swagger-ui .opblock-summary-description,
+    .swagger-ui .tabli button,
+    .swagger-ui .model-title,
+    .swagger-ui .parameter__name,
+    .swagger-ui .response-col_status,
+    .swagger-ui .response-col_description {
+      color: #fff !important;
+    }
+    .swagger-ui .opblock {
+      background: #1a1f3a !important;
+      border-color: rgba(61, 182, 255, 0.2) !important;
+    }
+    .swagger-ui .opblock .opblock-summary {
+      border-bottom-color: rgba(61, 182, 255, 0.1) !important;
+    }
+    .swagger-ui select,
+    .swagger-ui input {
+      background: #0f1420 !important;
+      color: #fff !important;
+      border: 1px solid rgba(61, 182, 255, 0.3) !important;
+    }
+    .swagger-ui .topbar { display: none; }
+    
+    .hostify-back {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      background: #3db6ff;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(61, 182, 255, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s;
+    }
+    .hostify-back:hover {
+      transform: translateY(-5px);
+      background: #2da3e8;
+    }
+  </style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  
+  <a href="/" class="hostify-back">
+    <i class="fas fa-arrow-left"></i> Volver a Hostify
+  </a>
+
+  <script is:inline src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js"></script>
+  <script is:inline src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js"></script>
+  <script is:inline>
+    window.onload = () => {
+      window.ui = SwaggerUIBundle({
+        url: "/api/swagger.json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout",
+      });
+    };
+  </script>
+</body>
+</html>

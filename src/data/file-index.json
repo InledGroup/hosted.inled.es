@@ -184,6 +184,14 @@
     "extension": ".pdf"
   },
   {
+    "name": "Finder_icon_macOS_Yosemite.png",
+    "type": "file",
+    "path": "Finder_icon_macOS_Yosemite.png",
+    "size": 538840,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "INDOC.png",
     "type": "file",
     "path": "INDOC.png",
@@ -240,10 +248,34 @@
     "extension": ".png"
   },
   {
+    "name": "MDOCX.png",
+    "type": "file",
+    "path": "MDOCX.png",
+    "size": 111917,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "MDOXC.png",
+    "type": "file",
+    "path": "MDOXC.png",
+    "size": 111923,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "MDPDF.png",
     "type": "file",
     "path": "MDPDF.png",
     "size": 27319,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "MYPDF.png",
+    "type": "file",
+    "path": "MYPDF.png",
+    "size": 85228,
     "isImage": true,
     "extension": ".png"
   },
@@ -288,6 +320,46 @@
     "extension": ".png"
   },
   {
+    "name": "Tux.svg",
+    "type": "file",
+    "path": "Tux.svg",
+    "size": 49983,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
+    "name": "Windows_logo_-_2021.svg",
+    "type": "file",
+    "path": "Windows_logo_-_2021.svg",
+    "size": 179,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
+    "name": "agent-tunnel-churro.png",
+    "type": "file",
+    "path": "agent-tunnel-churro.png",
+    "size": 151675,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "agent-tunnel.png",
+    "type": "file",
+    "path": "agent-tunnel.png",
+    "size": 1007316,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "aicloud.png",
+    "type": "file",
+    "path": "aicloud.png",
+    "size": 186974,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "ainclouddeco.png",
     "type": "file",
     "path": "ainclouddeco.png",
@@ -320,10 +392,74 @@
     "extension": ".png"
   },
   {
+    "name": "application-pdf.png",
+    "type": "file",
+    "path": "application-pdf.png",
+    "size": 14405,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "application-x-zip.png",
+    "type": "file",
+    "path": "application-x-zip.png",
+    "size": 11167,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "archive.is.png",
     "type": "file",
     "path": "archive.is.png",
     "size": 12832,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "banner-github-inled-better-with-logo.gif",
+    "type": "file",
+    "path": "banner-github-inled-better-with-logo.gif",
+    "size": 2614603,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
+    "name": "bastion.png",
+    "type": "file",
+    "path": "bastion.png",
+    "size": 273168,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "bautilus-demo.png",
+    "type": "file",
+    "path": "bautilus-demo.png",
+    "size": 102633,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "bautilus.png",
+    "type": "file",
+    "path": "bautilus.png",
+    "size": 882390,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "better-inled-grub.png",
+    "type": "file",
+    "path": "better-inled-grub.png",
+    "size": 400837,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "better.inled.png",
+    "type": "file",
+    "path": "better.inled.png",
+    "size": 2522129,
     "isImage": true,
     "extension": ".png"
   },
@@ -456,6 +592,14 @@
     "extension": ".jpeg"
   },
   {
+    "name": "darkreaderpdf.png",
+    "type": "file",
+    "path": "darkreaderpdf.png",
+    "size": 54224,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "definicion-de-hacker.png",
     "type": "file",
     "path": "definicion-de-hacker.png",
@@ -464,9 +608,28 @@
     "extension": ".png"
   },
   {
-    "name": "documents",
-    "type": "folder",
-    "path": "documents"
+    "name": "demo-dark-reader.png",
+    "type": "file",
+    "path": "demo-dark-reader.png",
+    "size": 287014,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "demoweby.mp4",
+    "type": "file",
+    "path": "demoweby.mp4",
+    "size": 15995177,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
+    "name": "devreka.png",
+    "type": "file",
+    "path": "devreka.png",
+    "size": 14403,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "dream.build.png",
@@ -505,6 +668,14 @@
     "type": "file",
     "path": "ecosia-en-start.png",
     "size": 317658,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "edgeai.png",
+    "type": "file",
+    "path": "edgeai.png",
+    "size": 115297,
     "isImage": true,
     "extension": ".png"
   },
@@ -555,6 +726,22 @@
     "size": 2831296,
     "isImage": true,
     "extension": ".gif"
+  },
+  {
+    "name": "gemini-voice.png",
+    "type": "file",
+    "path": "gemini-voice.png",
+    "size": 1611461,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "geminishh-3d.png",
+    "type": "file",
+    "path": "geminishh-3d.png",
+    "size": 221167,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "glassy.svg",
@@ -621,25 +808,20 @@
     "extension": ".gif"
   },
   {
+    "name": "image-x-generic.png",
+    "type": "file",
+    "path": "image-x-generic.png",
+    "size": 10329,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "image.png",
     "type": "file",
     "path": "image.png",
     "size": 166748,
     "isImage": true,
     "extension": ".png"
-  },
-  {
-    "name": "images",
-    "type": "folder",
-    "path": "images"
-  },
-  {
-    "name": "a.txt",
-    "type": "file",
-    "path": "images/a.txt",
-    "size": 0,
-    "isImage": false,
-    "extension": ".txt"
   },
   {
     "name": "imhuman copia.png",
@@ -706,12 +888,44 @@
     "extension": ".gif"
   },
   {
+    "name": "inled2026future.png",
+    "type": "file",
+    "path": "inled2026future.png",
+    "size": 1761245,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "inledai.png",
+    "type": "file",
+    "path": "inledai.png",
+    "size": 5052,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "inledai.svg",
     "type": "file",
     "path": "inledai.svg",
     "size": 2122,
     "isImage": true,
     "extension": ".svg"
+  },
+  {
+    "name": "inpdf.png",
+    "type": "file",
+    "path": "inpdf.png",
+    "size": 27969,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "inqr.png",
+    "type": "file",
+    "path": "inqr.png",
+    "size": 26200,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "inshare.capture.png",
@@ -994,12 +1208,36 @@
     "extension": ".png"
   },
   {
+    "name": "moodlenotifier-screenshot1.png",
+    "type": "file",
+    "path": "moodlenotifier-screenshot1.png",
+    "size": 38583,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "moodlenotifier.png",
+    "type": "file",
+    "path": "moodlenotifier.png",
+    "size": 9929,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "multiformat-inlinked.gif",
     "type": "file",
     "path": "multiformat-inlinked.gif",
     "size": 608420,
     "isImage": true,
     "extension": ".gif"
+  },
+  {
+    "name": "mymetadata.svg",
+    "type": "file",
+    "path": "mymetadata.svg",
+    "size": 279,
+    "isImage": true,
+    "extension": ".svg"
   },
   {
     "name": "nfccaution.png",
@@ -1026,10 +1264,26 @@
     "extension": ".png"
   },
   {
+    "name": "oap.png",
+    "type": "file",
+    "path": "oap.png",
+    "size": 281051,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "ojoqueparecenoseque.png",
     "type": "file",
     "path": "ojoqueparecenoseque.png",
     "size": 1956630,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "onfocus-logo.png",
+    "type": "file",
+    "path": "onfocus-logo.png",
+    "size": 2764747,
     "isImage": true,
     "extension": ".png"
   },
@@ -1106,6 +1360,22 @@
     "extension": ".png"
   },
   {
+    "name": "ring-full.svg",
+    "type": "file",
+    "path": "ring-full.svg",
+    "size": 357364,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
+    "name": "ring-simple.svg",
+    "type": "file",
+    "path": "ring-simple.svg",
+    "size": 201747,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
     "name": "safari-developer-mode.png",
     "type": "file",
     "path": "safari-developer-mode.png",
@@ -1122,12 +1392,36 @@
     "extension": ".png"
   },
   {
+    "name": "sam-va-lentin.avif",
+    "type": "file",
+    "path": "sam-va-lentin.avif",
+    "size": 41195,
+    "isImage": false,
+    "extension": ".avif"
+  },
+  {
+    "name": "sam-va-lentin.webp",
+    "type": "file",
+    "path": "sam-va-lentin.webp",
+    "size": 636208,
+    "isImage": true,
+    "extension": ".webp"
+  },
+  {
     "name": "selector-buscadores.png",
     "type": "file",
     "path": "selector-buscadores.png",
     "size": 381599,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "sell-me-this-pen-is-ai-powered-meme-for-newsletter.jpg",
+    "type": "file",
+    "path": "sell-me-this-pen-is-ai-powered-meme-for-newsletter.jpg",
+    "size": 39014,
+    "isImage": true,
+    "extension": ".jpg"
   },
   {
     "name": "share-bytelloespanol-1.png",
@@ -1202,51 +1496,6 @@
     "extension": ".png"
   },
   {
-    "name": "swiftinstall",
-    "type": "folder",
-    "path": "swiftinstall"
-  },
-  {
-    "name": "1.png",
-    "type": "file",
-    "path": "swiftinstall/1.png",
-    "size": 42701,
-    "isImage": true,
-    "extension": ".png"
-  },
-  {
-    "name": "2.png",
-    "type": "file",
-    "path": "swiftinstall/2.png",
-    "size": 53363,
-    "isImage": true,
-    "extension": ".png"
-  },
-  {
-    "name": "3.png",
-    "type": "file",
-    "path": "swiftinstall/3.png",
-    "size": 61647,
-    "isImage": true,
-    "extension": ".png"
-  },
-  {
-    "name": "4.png",
-    "type": "file",
-    "path": "swiftinstall/4.png",
-    "size": 58131,
-    "isImage": true,
-    "extension": ".png"
-  },
-  {
-    "name": "5.png",
-    "type": "file",
-    "path": "swiftinstall/5.png",
-    "size": 51908,
-    "isImage": true,
-    "extension": ".png"
-  },
-  {
     "name": "swiftinstall-logo.png",
     "type": "file",
     "path": "swiftinstall-logo.png",
@@ -1279,6 +1528,22 @@
     "extension": ".png"
   },
   {
+    "name": "tabnest.png",
+    "type": "file",
+    "path": "tabnest.png",
+    "size": 74471,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "tabnestbgdemo.mp4",
+    "type": "file",
+    "path": "tabnestbgdemo.mp4",
+    "size": 6092889,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
     "name": "tabstacker.png",
     "type": "file",
     "path": "tabstacker.png",
@@ -1303,12 +1568,36 @@
     "extension": ".gif"
   },
   {
+    "name": "text-html.png",
+    "type": "file",
+    "path": "text-html.png",
+    "size": 9299,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "texto-a-html.gif",
     "type": "file",
     "path": "texto-a-html.gif",
     "size": 447690,
     "isImage": true,
     "extension": ".gif"
+  },
+  {
+    "name": "tuby.gif",
+    "type": "file",
+    "path": "tuby.gif",
+    "size": 237229,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
+    "name": "tuby.png",
+    "type": "file",
+    "path": "tuby.png",
+    "size": 38265,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "tutoriales-CANVA-RAPIDOS.png",
@@ -1343,12 +1632,44 @@
     "extension": ".png"
   },
   {
+    "name": "video-x-generic.png",
+    "type": "file",
+    "path": "video-x-generic.png",
+    "size": 19031,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "vozes.png",
+    "type": "file",
+    "path": "vozes.png",
+    "size": 2181223,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "vozesdemo.mp4",
+    "type": "file",
+    "path": "vozesdemo.mp4",
+    "size": 9123213,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
     "name": "warpupscale.png",
     "type": "file",
     "path": "warpupscale.png",
     "size": 18616,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "weby.gif",
+    "type": "file",
+    "path": "weby.gif",
+    "size": 1062705,
+    "isImage": true,
+    "extension": ".gif"
   },
   {
     "name": "winbsod.png",

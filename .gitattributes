@@ -1,0 +1,11 @@
+# Hostify OS - Configuración de Exportación
+# Estos archivos se ignorarán al generar el .zip desde GitHub o git archive
+
+public/ export-ignore
+node_modules/ export-ignore
+dist/ export-ignore
+.env export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+.hostify_update/ export-ignore
+package-lock.json export-ignore
