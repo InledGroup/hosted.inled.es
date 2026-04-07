@@ -5,19 +5,44 @@ export const GET: APIRoute = () => {
     openapi: "3.0.0",
     info: {
       title: "Hostify API",
-      description: "API para la gestión de archivos y actualización del motor Hostify.",
-      version: "1.0.0"
+      description: "API para la gestión de archivos y descarga del motor Hostify.",
+      version: "1.0.1"
     },
     paths: {
       "/api/files": {
         get: {
-          summary: "Listar archivos",
-          description: "Obtiene la lista completa de archivos o realiza una búsqueda filtrada.",
-          parameters: [
-            { name: "search", in: "query", schema: { type: "string" }, description: "Término de búsqueda" },
-            { name: "path", in: "query", schema: { type: "string" }, description: "Filtrar por subcarpeta" }
-          ],
-          responses: { 200: { description: "Lista de archivos en JSON" } }
+          summary: "Listar todos los archivos",
+          description: "Obtiene el índice completo de archivos del repositorio. No soporta parámetros de búsqueda, ya que esta debe ser implementada en el cliente.",
+          responses: { 
+            200: { 
+              description: "Lista completa de archivos en formato JSON",
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      success: { type: "boolean" },
+                      count: { type: "integer" },
+                      items: { 
+                        type: "array",
+                        items: {
+                          type: "object",
+                          properties: {
+                            name: { type: "string" },
+                            type: { type: "string" },
+                            path: { type: "string" },
+                            size: { type: "integer" },
+                            isImage: { type: "boolean" },
+                            extension: { type: "string" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            } 
+          }
         }
       },
       "/api/template": {
