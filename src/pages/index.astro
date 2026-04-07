@@ -518,13 +518,17 @@ function formatBytes(bytes: number): string {
 
       itemsGrid.innerHTML = items.map(item => {
         const isFolder = item.type === 'folder';
+        // En Cloudflare Pages, todos los archivos estáticos de public/ están bajo la raíz, 
+        // pero tu estructura de datos parece esperar que estén en /1/
+        const publicPath = `/1/${item.path}`;
+        
         return `
           <div class="item" data-name="${item.name.toLowerCase()}" data-type="${item.type}">
             <div class="item-preview">
               ${isFolder ? 
                 `<i class="fas fa-folder folder-icon"></i>` : 
                 (item.isImage ? 
-                  `<img src="/${item.path}" alt="${item.name}" loading="lazy" />` : 
+                  `<img src="${publicPath}" alt="${item.name}" loading="lazy" style="object-fit: contain; background: #0a0e27; width: 100%; height: 100%;" />` : 
                   `<i class="fas ${getFileIcon(item.extension)} file-icon"></i>`
                 )
               }
@@ -544,10 +548,10 @@ function formatBytes(bytes: number): string {
                   `<button class="btn btn-primary" onclick="navigateTo('${item.path}')">
                     <i class="fas fa-folder-open"></i> Abrir
                   </button>` : 
-                  `<button class="btn btn-primary" onclick="copyUrl('/1/${item.path}')">
+                  `<button class="btn btn-primary" onclick="copyUrl('${publicPath}')">
                     <i class="fas fa-copy"></i> Copiar
                   </button>
-                  <a href="/1/${item.path}" target="_blank" class="btn btn-secondary" style="text-decoration: none; text-align: center;">
+                  <a href="${publicPath}" target="_blank" class="btn btn-secondary" style="text-decoration: none; text-align: center;">
                     <i class="fas fa-external-link-alt"></i> Ver
                   </a>`
                 }
