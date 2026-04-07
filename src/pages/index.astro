@@ -2,6 +2,8 @@
 import fileIndex from '../data/file-index.json';
 import UploadModal from '../components/UploadModal.astro';
 
+export const prerender = true;
+
 const currentPath = Astro.url.searchParams.get('path') || '';
 
 // Filtrar items para el directorio actual
