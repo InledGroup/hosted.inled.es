@@ -2,9 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, '../public/1');
 const outputFile = path.join(__dirname, '../src/data/file-index.json');
+const redirectsFile = path.join(__dirname, '../public/_redirects');
 
 function getAllFilesRecursive(dirPath, basePath = '') {
   try {
@@ -26,11 +28,12 @@ function getAllFilesRecursive(dirPath, basePath = '') {
           type: 'folder',
           path: relativePath
         });
-        allItems = allItems.concat(getAllFilesRecursive(fullPath, relativePath));
+        const subItems = getAllFilesRecursive(fullPath, relativePath);
+        allItems = allItems.concat(subItems);
       } else {
         const stats = fs.statSync(fullPath);
         const ext = path.extname(item.name).toLowerCase();
-        const isImage = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp'].includes(ext);
+        const isImage = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp', '.ico'].includes(ext);
 
         allItems.push({
           name: item.name,
@@ -62,5 +65,24 @@ if (!fs.existsSync(dataDir)) {
 // Write file index
 fs.writeFileSync(outputFile, JSON.stringify(fileIndex, null, 2));
 
+// --- GENERAR _REDIRECTS CON REGLA MAESTRA (SPLAT) ---
+// Esta configuración protege la infraestructura de la web y redirige todo lo demás a /1/
+const redirectsContent = `# Cloudflare Pages Redirects - Master Splat Rule
+# 1. Excepciones Críticas (Evitan que la web se rompa)
+/              /index.html    200
+/index.html    /index.html    200
+/favicon.ico   /favicon.ico   200
+/api/*         /api/:splat    200
+/_astro/*      /_astro/:splat 200
+
+# 2. Regla Maestra (Todo lo que no coincida arriba, búscalo en /1/)
+# Esto permite enlaces antiguos como /mi-imagen.png -> /1/mi-imagen.png
+/*             /1/:splat      200
+`;
+
+// Escribir el archivo _redirects en la carpeta public
+fs.writeFileSync(redirectsFile, redirectsContent);
+
 console.log(`✅ Generated file index with ${fileIndex.length} items`);
 console.log(`📝 Output: ${outputFile}`);
+console.log(`🚀 Master Splat Rule applied to ${redirectsFile}`);
