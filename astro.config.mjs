@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   output: 'static',
-  adapter: cloudflare(),
+  // Eliminamos el adaptador de Cloudflare para que sea 100% estático
+  // Cloudflare Pages servirá la carpeta dist/ automáticamente.
 });
