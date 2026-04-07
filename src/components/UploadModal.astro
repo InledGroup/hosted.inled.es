@@ -362,59 +362,10 @@ const { currentPath = '' } = Astro.props;
   }
 </style>
 
-<!-- Modal de Actualización de Hostify -->
-<div id="updateHostifyModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2><i class="fas fa-sync-alt"></i> Actualizar Hostify</h2>
-      <button class="close-btn" id="closeUpdateModal">&times;</button>
-    </div>
-    <div class="modal-body">
-      <form id="updateHostifyForm" class="upload-form">
-        <div class="help-note" style="margin-bottom: 1.5rem;">
-          <i class="fas fa-exclamation-triangle"></i> <strong>Atención:</strong> Esta acción reemplazará el código fuente del motor. La carpeta <code>public/</code> no se verá afectada. Solo funciona en modo <strong>npm run dev</strong>.
-        </div>
-        
-        <div class="drop-zone" id="updateDropZone">
-          <i class="fas fa-file-archive"></i>
-          <p>Sube el archivo <code>Hostify.zip</code> para actualizar</p>
-          <input type="file" name="zip" id="zipInput" accept=".zip" required hidden />
-          <div id="zipName" class="file-name"></div>
-        </div>
-
-        <div id="updateStatus" class="upload-status hidden">
-          <div class="progress-bar">
-            <div id="updateProgressFill" class="progress-fill"></div>
-          </div>
-          <p id="updateStatusMessage">Procesando actualización...</p>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block" id="confirmUpdateBtn">
-          <i class="fas fa-magic"></i> Ejecutar Actualización
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-
 <script>
-  import { actions } from 'astro:actions';
-
   const modal = document.getElementById('uploadModal');
-  const updateModal = document.getElementById('updateHostifyModal');
   const closeBtn = document.getElementById('closeModal');
-  const closeUpdateBtn = document.getElementById('closeUpdateModal');
   
-  // Elementos actualización
-  const updateForm = document.getElementById('updateHostifyForm') as HTMLFormElement;
-  const zipInput = document.getElementById('zipInput') as HTMLInputElement;
-  const zipNameDisplay = document.getElementById('zipName');
-  const updateDropZone = document.getElementById('updateDropZone');
-  const updateStatusDiv = document.getElementById('updateStatus');
-  const updateProgressFill = document.getElementById('updateProgressFill');
-  const updateStatusMessage = document.getElementById('updateStatusMessage');
-  const confirmUpdateBtn = document.getElementById('confirmUpdateBtn') as HTMLButtonElement;
-
   // Elementos subida estándar
   const uploadForm = document.getElementById('uploadForm') as HTMLFormElement;
   const fileInput = document.getElementById('fileInput') as HTMLInputElement;
@@ -430,48 +381,9 @@ const { currentPath = '' } = Astro.props;
     modal?.classList.add('show');
   });
 
-  document.getElementById('openUpdateHostifyBtn')?.addEventListener('click', () => {
-    updateModal?.classList.add('show');
-  });
-
   // Cerrar modales
-  [closeBtn, closeUpdateBtn].forEach(btn => {
-    btn?.addEventListener('click', () => {
-      modal?.classList.remove('show');
-      updateModal?.classList.remove('show');
-    });
-  });
-
-  // Lógica de archivos para actualización
-  updateDropZone?.addEventListener('click', () => zipInput?.click());
-  zipInput?.addEventListener('change', () => {
-    if (zipInput.files?.length) {
-      zipNameDisplay!.textContent = `Seleccionado: ${zipInput.files[0].name}`;
-    }
-  });
-
-  updateForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(updateForm);
-    confirmUpdateBtn.disabled = true;
-    updateStatusDiv?.classList.remove('hidden');
-    updateProgressFill!.style.width = '50%';
-
-    const { data, error } = await actions.updateHostify(formData);
-
-    if (error) {
-      updateStatusMessage!.textContent = `Error: ${error.message}`;
-      updateStatusMessage!.style.color = '#ff4d4d';
-      confirmUpdateBtn.disabled = false;
-    } else if (data?.success) {
-      updateProgressFill!.style.width = '100%';
-      updateStatusMessage!.textContent = '¡Hostify actualizado! Reiniciando...';
-      setTimeout(() => window.location.reload(), 2000);
-    } else {
-      updateStatusMessage!.textContent = `Error: ${data?.error || 'Error desconocido'}`;
-      updateStatusMessage!.style.color = '#ff4d4d';
-      confirmUpdateBtn.disabled = false;
-    }
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.remove('show');
   });
 
   // Modal de Ayuda
@@ -557,9 +469,6 @@ const { currentPath = '' } = Astro.props;
       const fileName = file.name.replace(/\s+/g, '-');
       const finalPath = `public/${path}/${fileName}`;
 
-      // 1. Verificar si el archivo ya existe para obtener el SHA (opcional para subir nuevo, necesario para sobrescribir)
-      // Por ahora intentamos subir directamente como nuevo archivo
-      
       const response = await fetch(`https://api.github.com/repos/${repo}/contents/${finalPath}`, {
         method: 'PUT',
         headers: {
@@ -569,7 +478,7 @@ const { currentPath = '' } = Astro.props;
         body: JSON.stringify({
           message: `Upload ${fileName} via Hosted Inled UI`,
           content: base64,
-          branch: 'main' // Asegúrate de que esta sea tu rama principal
+          branch: 'main'
         })
       });
 

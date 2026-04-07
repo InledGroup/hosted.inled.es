@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import fileIndex from '../../data/file-index.json';
 
+export const prerender = true;
+
 export const GET: APIRoute = () => {
   return new Response(JSON.stringify({
     success: true,
