@@ -120,6 +120,14 @@
     "extension": ".png"
   },
   {
+    "name": "Captura-de-pantalla-2026-04-08-a-las-20.00.51.png",
+    "type": "file",
+    "path": "Captura-de-pantalla-2026-04-08-a-las-20.00.51.png",
+    "size": 395054,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "Captura-desde-2025-04-15-08-43-52.png",
     "type": "file",
     "path": "Captura-desde-2025-04-15-08-43-52.png",
@@ -784,6 +792,14 @@
     "extension": ".png"
   },
   {
+    "name": "hostify.png",
+    "type": "file",
+    "path": "hostify.png",
+    "size": 1575233,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "iccount.png",
     "type": "file",
     "path": "iccount.png",
@@ -1076,7 +1092,7 @@
     "type": "file",
     "path": "matrixwww.ico",
     "size": 37595,
-    "isImage": false,
+    "isImage": true,
     "extension": ".ico"
   },
   {
