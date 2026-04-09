@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "prebuild": "node scripts/generate-file-index.js",
-    "build": "astro check && astro build",
+    "build": "node scripts/generate-file-index.js && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

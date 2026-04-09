@@ -648,17 +648,32 @@ function formatBytes(bytes: number): string {
 
       if (searchInput) {
         searchInput.addEventListener('input', function() {
-          const searchTerm = this.value.toLowerCase();
-          const items = document.querySelectorAll('.item');
+          const searchTerm = this.value.toLowerCase().trim();
           
-          items.forEach(item => {
-            const itemName = item.getAttribute('data-name') || '';
-            if (itemName.includes(searchTerm)) {
-              item.classList.remove('hidden');
-            } else {
-              item.classList.add('hidden');
-            }
-          });
+          if (!searchTerm) {
+            updateView(); // Volver a la carpeta actual si no hay búsqueda
+            return;
+          }
+
+          // BÚSQUEDA GLOBAL: Buscar en todo el índice de archivos
+          const foundItems = fileIndex.filter(item => 
+            item.name.toLowerCase().includes(searchTerm) || 
+            item.path.toLowerCase().includes(searchTerm)
+          );
+
+          // Mostrar resultados
+          if (foundItems.length > 0) {
+            breadcrumb.innerHTML = `<span><i class="fas fa-search"></i> Resultados para: "${searchTerm}"</span>`;
+            renderFiles(foundItems);
+          } else {
+            itemsGrid.innerHTML = `
+              <div class="empty-state">
+                <i class="fas fa-search"></i>
+                <h2>No se encontró nada</h2>
+                <p>No hay archivos que coincidan con "${searchTerm}"</p>
+              </div>
+            `;
+          }
         });
       }
     });

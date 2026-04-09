@@ -20,7 +20,8 @@ function getAllFilesRecursive(dirPath, basePath = '') {
 
     for (const item of items) {
       const fullPath = path.join(dirPath, item.name);
-      const relativePath = path.join(basePath, item.name);
+      // NORMALIZACIÓN: Forzamos el uso de '/' para las rutas del índice, sin importar el SO
+      const relativePath = path.join(basePath, item.name).split(path.sep).join('/');
 
       if (item.isDirectory()) {
         allItems.push({
@@ -56,14 +57,23 @@ function getAllFilesRecursive(dirPath, basePath = '') {
 // Generate file index
 const fileIndex = getAllFilesRecursive(publicDir);
 
-// Create data directory if it doesn't exist
-const dataDir = path.dirname(outputFile);
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
+// Rutas de salida
+const publicOutputFile = path.join(__dirname, '../public/file-index.json');
+const srcOutputFile = path.join(__dirname, '../src/data/file-index.json');
 
-// Write file index
-fs.writeFileSync(outputFile, JSON.stringify(fileIndex, null, 2));
+// Asegurar directorios
+[path.dirname(publicOutputFile), path.dirname(srcOutputFile)].forEach(dir => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+});
+
+// Guardar en ambos sitios
+const jsonContent = JSON.stringify(fileIndex, null, 2);
+fs.writeFileSync(publicOutputFile, jsonContent);
+fs.writeFileSync(srcOutputFile, jsonContent);
+
+console.log(`✅ Index generated: ${fileIndex.length} items`);
+console.log(`📍 Public: ${publicOutputFile}`);
+console.log(`📍 Source: ${srcOutputFile}`);
 
 // --- GENERAR _REDIRECTS CON REGLA MAESTRA (SPLAT) ---
 // Esta configuración protege la infraestructura de la web y redirige todo lo demás a /1/
