@@ -519,8 +519,8 @@ function formatBytes(bytes: number): string {
       itemsGrid.innerHTML = items.map(item => {
         const isFolder = item.type === 'folder';
         // En Cloudflare Pages, todos los archivos estáticos de public/ están bajo la raíz, 
-        // pero tu estructura de datos parece esperar que estén en /1/
-        const publicPath = `/1/${item.path}`;
+        // y la regla de redirección /* -> /1/:splat se encarga de buscarlos en /1/
+        const publicPath = `/${item.path}`;
         
         return `
           <div class="item" data-name="${item.name.toLowerCase()}" data-type="${item.type}">

@@ -1360,6 +1360,22 @@
     "extension": ".png"
   },
   {
+    "name": "pulsar-win11-nobg.png",
+    "type": "file",
+    "path": "pulsar-win11-nobg.png",
+    "size": 159740,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "pulsar-win11.png",
+    "type": "file",
+    "path": "pulsar-win11.png",
+    "size": 936354,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "pulsar12-background.png",
     "type": "file",
     "path": "pulsar12-background.png",

@@ -82,8 +82,10 @@ const redirectsContent = `# Cloudflare Pages Redirects - Master Splat Rule
 /              /index.html    200
 /index.html    /index.html    200
 /favicon.ico   /favicon.ico   200
+/file-index.json /file-index.json 200
 /api/*         /api/:splat    200
 /_astro/*      /_astro/:splat 200
+/1/*           /1/:splat      200
 
 # 2. Regla Maestra (Todo lo que no coincida arriba, búscalo en /1/)
 # Esto permite enlaces antiguos como /mi-imagen.png -> /1/mi-imagen.png
