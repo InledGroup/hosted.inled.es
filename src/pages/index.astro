@@ -551,6 +551,9 @@ function formatBytes(bytes: number): string {
                   `<button class="btn btn-primary" onclick="copyUrl('${publicPath}')">
                     <i class="fas fa-copy"></i> Copiar
                   </button>
+                  <a href="${publicPath}" download="${item.name}" class="btn btn-secondary" style="text-decoration: none; text-align: center;">
+                    <i class="fas fa-download"></i>
+                  </a>
                   <a href="${publicPath}" target="_blank" class="btn btn-secondary" style="text-decoration: none; text-align: center;">
                     <i class="fas fa-external-link-alt"></i> Ver
                   </a>`
@@ -609,7 +612,7 @@ function formatBytes(bytes: number): string {
     }
 
     function copyUrl(url) {
-      const fullUrl = window.location.origin + url;
+      const fullUrl = 'https://hosted.inled.es' + url;
       navigator.clipboard.writeText(fullUrl).then(() => {
         showToast('<i class="fas fa-check-circle"></i> URL copiada al portapapeles');
       }).catch(() => {
