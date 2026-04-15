@@ -480,6 +480,30 @@
     "extension": ".svg"
   },
   {
+    "name": "bitid-animated.gif",
+    "type": "file",
+    "path": "bitid-animated.gif",
+    "size": 8178480,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
+    "name": "bitmeet-blueshape-whitebg.png",
+    "type": "file",
+    "path": "bitmeet-blueshape-whitebg.png",
+    "size": 580765,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "bitmeet-whiteshape-bluebg.png",
+    "type": "file",
+    "path": "bitmeet-whiteshape-bluebg.png",
+    "size": 118552,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "bloqmayus.png",
     "type": "file",
     "path": "bloqmayus.png",
@@ -888,6 +912,14 @@
     "extension": ".png"
   },
   {
+    "name": "inled-banner-x.png",
+    "type": "file",
+    "path": "inled-banner-x.png",
+    "size": 816750,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "inled-logo-full.png",
     "type": "file",
     "path": "inled-logo-full.png",
@@ -982,6 +1014,14 @@
     "size": 2032,
     "isImage": true,
     "extension": ".svg"
+  },
+  {
+    "name": "inx.png",
+    "type": "file",
+    "path": "inx.png",
+    "size": 18410,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "launch-the-launcher-logo-animated.gif",
