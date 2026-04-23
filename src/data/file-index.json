@@ -896,6 +896,14 @@
     "extension": ".png"
   },
   {
+    "name": "inled-1024x1024.png",
+    "type": "file",
+    "path": "inled-1024x1024.png",
+    "size": 11251,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "inled-LEARN-simple-sf-blanco.png",
     "type": "file",
     "path": "inled-LEARN-simple-sf-blanco.png",
@@ -1116,6 +1124,14 @@
     "type": "file",
     "path": "mac-y-linux-hablando.png",
     "size": 89912,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "mailform-workers.png",
+    "type": "file",
+    "path": "mailform-workers.png",
+    "size": 993489,
     "isImage": true,
     "extension": ".png"
   },
