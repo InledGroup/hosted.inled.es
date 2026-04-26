@@ -1312,6 +1312,14 @@
     "extension": ".svg"
   },
   {
+    "name": "new-agent-tunnel.png",
+    "type": "file",
+    "path": "new-agent-tunnel.png",
+    "size": 5805137,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "nfccaution.png",
     "type": "file",
     "path": "nfccaution.png",
