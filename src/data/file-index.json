@@ -1016,6 +1016,14 @@
     "extension": ".gif"
   },
   {
+    "name": "insuite-office-matrix.gif",
+    "type": "file",
+    "path": "insuite-office-matrix.gif",
+    "size": 1375468,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
     "name": "insuite.svg",
     "type": "file",
     "path": "insuite.svg",
@@ -1088,6 +1096,14 @@
     "extension": ".gif"
   },
   {
+    "name": "libreoffice-insuite.png",
+    "type": "file",
+    "path": "libreoffice-insuite.png",
+    "size": 42070,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "linux-distros.png",
     "type": "file",
     "path": "linux-distros.png",
@@ -1118,6 +1134,14 @@
     "size": 90819,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "logos-insuite.zip",
+    "type": "file",
+    "path": "logos-insuite.zip",
+    "size": 2152069,
+    "isImage": false,
+    "extension": ".zip"
   },
   {
     "name": "mac-y-linux-hablando.png",
@@ -1280,6 +1304,14 @@
     "extension": ".png"
   },
   {
+    "name": "microslop-insuite.png",
+    "type": "file",
+    "path": "microslop-insuite.png",
+    "size": 1217843,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "moodlenotifier-screenshot1.png",
     "type": "file",
     "path": "moodlenotifier-screenshot1.png",
@@ -1364,6 +1396,14 @@
     "type": "file",
     "path": "onfocus-logo.png",
     "size": 2764747,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "onlyoffice-insuite.png",
+    "type": "file",
+    "path": "onlyoffice-insuite.png",
+    "size": 557428,
     "isImage": true,
     "extension": ".png"
   },
@@ -1820,6 +1860,14 @@
     "type": "file",
     "path": "winerror.png",
     "size": 13284,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "ziziyi-office-insuite.png",
+    "type": "file",
+    "path": "ziziyi-office-insuite.png",
+    "size": 333970,
     "isImage": true,
     "extension": ".png"
   }
