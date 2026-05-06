@@ -584,6 +584,22 @@
     "extension": ".png"
   },
   {
+    "name": "codexbar for gnome.png",
+    "type": "file",
+    "path": "codexbar for gnome.png",
+    "size": 1373987,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "codexbar-logo.png",
+    "type": "file",
+    "path": "codexbar-logo.png",
+    "size": 230024,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "comemierda.gif",
     "type": "file",
     "path": "comemierda.gif",
