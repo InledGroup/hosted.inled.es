@@ -1560,6 +1560,22 @@
     "extension": ".webp"
   },
   {
+    "name": "screenshot-annotator-2.png",
+    "type": "file",
+    "path": "screenshot-annotator-2.png",
+    "size": 585395,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "screenshot-annotator.png",
+    "type": "file",
+    "path": "screenshot-annotator.png",
+    "size": 2509492,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "selector-buscadores.png",
     "type": "file",
     "path": "selector-buscadores.png",
@@ -1812,6 +1828,14 @@
     "type": "file",
     "path": "warpupscale.png",
     "size": 18616,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "web2skill-w2s.png",
+    "type": "file",
+    "path": "web2skill-w2s.png",
+    "size": 1439092,
     "isImage": true,
     "extension": ".png"
   },
