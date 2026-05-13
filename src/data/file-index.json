@@ -1840,6 +1840,14 @@
     "extension": ".png"
   },
   {
+    "name": "web2skill.mp4",
+    "type": "file",
+    "path": "web2skill.mp4",
+    "size": 3605705,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
     "name": "weby.gif",
     "type": "file",
     "path": "weby.gif",
