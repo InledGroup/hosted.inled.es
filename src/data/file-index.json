@@ -368,12 +368,28 @@
     "extension": ".png"
   },
   {
+    "name": "aiexporter-converter.gif",
+    "type": "file",
+    "path": "aiexporter-converter.gif",
+    "size": 5366573,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
     "name": "aiexporter.png",
     "type": "file",
     "path": "aiexporter.png",
     "size": 82629,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "aiexporterdemopdf.mp4",
+    "type": "file",
+    "path": "aiexporterdemopdf.mp4",
+    "size": 18161216,
+    "isImage": false,
+    "extension": ".mp4"
   },
   {
     "name": "ainclouddeco.png",
