@@ -1456,6 +1456,14 @@
     "extension": ".gif"
   },
   {
+    "name": "openwith-swiftinstall.mp4",
+    "type": "file",
+    "path": "openwith-swiftinstall.mp4",
+    "size": 8859451,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
     "name": "ordenadorpublico.gif",
     "type": "file",
     "path": "ordenadorpublico.gif",
@@ -1696,6 +1704,14 @@
     "extension": ".png"
   },
   {
+    "name": "swiftinstall-searchapps.mp4",
+    "type": "file",
+    "path": "swiftinstall-searchapps.mp4",
+    "size": 11668059,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
     "name": "swiftinstall.zip",
     "type": "file",
     "path": "swiftinstall.zip",
@@ -1814,6 +1830,14 @@
     "size": 74534,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "uninstall-swiftinstall.mp4",
+    "type": "file",
+    "path": "uninstall-swiftinstall.mp4",
+    "size": 8319347,
+    "isImage": false,
+    "extension": ".mp4"
   },
   {
     "name": "v7seven.png",
