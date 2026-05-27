@@ -368,6 +368,14 @@
     "extension": ".png"
   },
   {
+    "name": "aiexporter.png",
+    "type": "file",
+    "path": "aiexporter.png",
+    "size": 82629,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "ainclouddeco.png",
     "type": "file",
     "path": "ainclouddeco.png",
