@@ -1192,6 +1192,14 @@
     "extension": ".png"
   },
   {
+    "name": "macboat.png",
+    "type": "file",
+    "path": "macboat.png",
+    "size": 1590798,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "mailform-workers.png",
     "type": "file",
     "path": "mailform-workers.png",
