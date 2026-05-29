@@ -1312,6 +1312,14 @@
     "extension": ".gif"
   },
   {
+    "name": "mdpedia.png",
+    "type": "file",
+    "path": "mdpedia.png",
+    "size": 2155107,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "memory-warn-logo.png",
     "type": "file",
     "path": "memory-warn-logo.png",
