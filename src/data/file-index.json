@@ -424,6 +424,14 @@
     "extension": ".png"
   },
   {
+    "name": "appinstall-shot.png",
+    "type": "file",
+    "path": "appinstall-shot.png",
+    "size": 2590887,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "application-pdf.png",
     "type": "file",
     "path": "application-pdf.png",
@@ -454,6 +462,14 @@
     "size": 2614603,
     "isImage": true,
     "extension": ".gif"
+  },
+  {
+    "name": "bastion-shot.png",
+    "type": "file",
+    "path": "bastion-shot.png",
+    "size": 220109,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "bastion.png",
@@ -624,6 +640,14 @@
     "extension": ".png"
   },
   {
+    "name": "codexbar-shot.gif",
+    "type": "file",
+    "path": "codexbar-shot.gif",
+    "size": 315217,
+    "isImage": true,
+    "extension": ".gif"
+  },
+  {
     "name": "comemierda.gif",
     "type": "file",
     "path": "comemierda.gif",
@@ -718,6 +742,14 @@
     "size": 16381,
     "isImage": true,
     "extension": ".svg"
+  },
+  {
+    "name": "droidtux.png",
+    "type": "file",
+    "path": "droidtux.png",
+    "size": 1083247,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "dsign-backgrounbd.gif",
@@ -1008,10 +1040,34 @@
     "extension": ".svg"
   },
   {
+    "name": "inlinked-shot.png",
+    "type": "file",
+    "path": "inlinked-shot.png",
+    "size": 125975,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "inmd-shot.png",
+    "type": "file",
+    "path": "inmd-shot.png",
+    "size": 536946,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "inpdf.png",
     "type": "file",
     "path": "inpdf.png",
     "size": 27969,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "inqr-shot.png",
+    "type": "file",
+    "path": "inqr-shot.png",
+    "size": 625939,
     "isImage": true,
     "extension": ".png"
   },
@@ -1288,6 +1344,14 @@
     "extension": ".png"
   },
   {
+    "name": "mdpdf-shot.png",
+    "type": "file",
+    "path": "mdpdf-shot.png",
+    "size": 164580,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "mdpdf.functions-2.gif",
     "type": "file",
     "path": "mdpdf.functions-2.gif",
@@ -1392,12 +1456,28 @@
     "extension": ".gif"
   },
   {
+    "name": "mymetadata-shot.png",
+    "type": "file",
+    "path": "mymetadata-shot.png",
+    "size": 390806,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "mymetadata.svg",
     "type": "file",
     "path": "mymetadata.svg",
     "size": 279,
     "isImage": true,
     "extension": ".svg"
+  },
+  {
+    "name": "mypdf-shot.png",
+    "type": "file",
+    "path": "mypdf-shot.png",
+    "size": 113207,
+    "isImage": true,
+    "extension": ".png"
   },
   {
     "name": "new-agent-tunnel.png",
@@ -1432,10 +1512,26 @@
     "extension": ".png"
   },
   {
+    "name": "oap-shot.png",
+    "type": "file",
+    "path": "oap-shot.png",
+    "size": 104315,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "oap.png",
     "type": "file",
     "path": "oap.png",
     "size": 281051,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "office-shot.png",
+    "type": "file",
+    "path": "office-shot.png",
+    "size": 416633,
     "isImage": true,
     "extension": ".png"
   },
@@ -1664,6 +1760,14 @@
     "extension": ".gif"
   },
   {
+    "name": "start-shot.png",
+    "type": "file",
+    "path": "start-shot.png",
+    "size": 1399660,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "start-simple-blanco-sinfondo.png",
     "type": "file",
     "path": "start-simple-blanco-sinfondo.png",
@@ -1748,6 +1852,14 @@
     "type": "file",
     "path": "synetech.png",
     "size": 13450,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "tabnest-shot.png",
+    "type": "file",
+    "path": "tabnest-shot.png",
+    "size": 2305788,
     "isImage": true,
     "extension": ".png"
   },
@@ -1868,6 +1980,14 @@
     "type": "file",
     "path": "video-x-generic.png",
     "size": 19031,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "vozes-frame.png",
+    "type": "file",
+    "path": "vozes-frame.png",
+    "size": 1049999,
     "isImage": true,
     "extension": ".png"
   },
