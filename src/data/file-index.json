@@ -240,6 +240,14 @@
     "extension": ".png"
   },
   {
+    "name": "KDE_connectLogo.png",
+    "type": "file",
+    "path": "KDE_connectLogo.png",
+    "size": 16603,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "Launchthelauncher-ytlogo__1_-removebg-preview.png",
     "type": "file",
     "path": "Launchthelauncher-ytlogo__1_-removebg-preview.png",
@@ -880,6 +888,14 @@
     "extension": ".gif"
   },
   {
+    "name": "gsconnect.png",
+    "type": "file",
+    "path": "gsconnect.png",
+    "size": 4595,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "hacked.png",
     "type": "file",
     "path": "hacked.png",
@@ -1444,6 +1460,14 @@
     "type": "file",
     "path": "microslop-insuite.png",
     "size": 1217843,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "mirror-gnome.png",
+    "type": "file",
+    "path": "mirror-gnome.png",
+    "size": 5168,
     "isImage": true,
     "extension": ".png"
   },
@@ -2030,6 +2054,14 @@
     "size": 18616,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "waydroid.svg",
+    "type": "file",
+    "path": "waydroid.svg",
+    "size": 261716,
+    "isImage": true,
+    "extension": ".svg"
   },
   {
     "name": "web2skill-w2s.png",
