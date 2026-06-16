@@ -320,6 +320,14 @@
     "extension": ".png"
   },
   {
+    "name": "Scrcpy_logo.svg.png",
+    "type": "file",
+    "path": "Scrcpy_logo.svg.png",
+    "size": 51229,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "SwiftInstall-banner-1.png",
     "type": "file",
     "path": "SwiftInstall-banner-1.png",
