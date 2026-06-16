@@ -448,6 +448,22 @@
     "extension": ".png"
   },
   {
+    "name": "apps-droidtux-demo2.png",
+    "type": "file",
+    "path": "apps-droidtux-demo2.png",
+    "size": 2330638,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "apps-droidtux-integradas.png",
+    "type": "file",
+    "path": "apps-droidtux-integradas.png",
+    "size": 522381,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "archive.is.png",
     "type": "file",
     "path": "archive.is.png",
