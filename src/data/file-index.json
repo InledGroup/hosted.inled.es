@@ -192,12 +192,28 @@
     "extension": ".pdf"
   },
   {
+    "name": "Fedora_logo.svg",
+    "type": "file",
+    "path": "Fedora_logo.svg",
+    "size": 2579,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
     "name": "Finder_icon_macOS_Yosemite.png",
     "type": "file",
     "path": "Finder_icon_macOS_Yosemite.png",
     "size": 538840,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "Google_Chrome_icon_(February_2022).svg",
+    "type": "file",
+    "path": "Google_Chrome_icon_(February_2022).svg",
+    "size": 1429,
+    "isImage": true,
+    "extension": ".svg"
   },
   {
     "name": "INDOC.png",
@@ -316,6 +332,14 @@
     "type": "file",
     "path": "NS_ERROR_FAILURE-0x80004005-1.png",
     "size": 54500,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "Safari-iOS-Logo-2017-present.png",
+    "type": "file",
+    "path": "Safari-iOS-Logo-2017-present.png",
+    "size": 240270,
     "isImage": true,
     "extension": ".png"
   },
@@ -484,6 +508,14 @@
     "type": "file",
     "path": "archive.is.png",
     "size": 12832,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "archlinux-logo.png",
+    "type": "file",
+    "path": "archlinux-logo.png",
+    "size": 497388,
     "isImage": true,
     "extension": ".png"
   },
@@ -728,6 +760,14 @@
     "extension": ".png"
   },
   {
+    "name": "debian.svg",
+    "type": "file",
+    "path": "debian.svg",
+    "size": 4312,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
     "name": "definicion-de-hacker.png",
     "type": "file",
     "path": "definicion-de-hacker.png",
@@ -950,6 +990,14 @@
     "size": 4060,
     "isImage": true,
     "extension": ".png"
+  },
+  {
+    "name": "icons8-arch-linux-color.zip",
+    "type": "file",
+    "path": "icons8-arch-linux-color.zip",
+    "size": 2961,
+    "isImage": false,
+    "extension": ".zip"
   },
   {
     "name": "ies-rafael-puga-ramon-orientacion-puga-website-‐-Inled-Group.gif",
