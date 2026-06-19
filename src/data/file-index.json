@@ -1768,6 +1768,22 @@
     "extension": ".png"
   },
   {
+    "name": "seafari-demo.mp4",
+    "type": "file",
+    "path": "seafari-demo.mp4",
+    "size": 24675863,
+    "isImage": false,
+    "extension": ".mp4"
+  },
+  {
+    "name": "seafari.png",
+    "type": "file",
+    "path": "seafari.png",
+    "size": 2775074,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "selector-buscadores.png",
     "type": "file",
     "path": "selector-buscadores.png",
