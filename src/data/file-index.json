@@ -1720,6 +1720,14 @@
     "extension": ".png"
   },
   {
+    "name": "pulsar-white-sf.png",
+    "type": "file",
+    "path": "pulsar-white-sf.png",
+    "size": 4225,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "pulsar-win11-nobg.png",
     "type": "file",
     "path": "pulsar-win11-nobg.png",
