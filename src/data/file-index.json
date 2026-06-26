@@ -1752,6 +1752,14 @@
     "extension": ".png"
   },
   {
+    "name": "pulsaros-installer-logo.png",
+    "type": "file",
+    "path": "pulsaros-installer-logo.png",
+    "size": 13042,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "responsive.png",
     "type": "file",
     "path": "responsive.png",
