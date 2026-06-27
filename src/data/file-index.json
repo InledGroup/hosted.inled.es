@@ -1752,6 +1752,22 @@
     "extension": ".png"
   },
   {
+    "name": "pulsaros-golden-gate-background.png",
+    "type": "file",
+    "path": "pulsaros-golden-gate-background.png",
+    "size": 1463819,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
+    "name": "pulsaros-golden-gate-bg-oscuro.png",
+    "type": "file",
+    "path": "pulsaros-golden-gate-bg-oscuro.png",
+    "size": 1439218,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "pulsaros-installer-logo.png",
     "type": "file",
     "path": "pulsaros-installer-logo.png",
