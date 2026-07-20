@@ -608,6 +608,14 @@
     "extension": ".png"
   },
   {
+    "name": "bitshare.svg",
+    "type": "file",
+    "path": "bitshare.svg",
+    "size": 31661,
+    "isImage": true,
+    "extension": ".svg"
+  },
+  {
     "name": "bloqmayus.png",
     "type": "file",
     "path": "bloqmayus.png",
