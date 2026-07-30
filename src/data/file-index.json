@@ -1728,6 +1728,14 @@
     "extension": ".png"
   },
   {
+    "name": "pulsar-mac.png",
+    "type": "file",
+    "path": "pulsar-mac.png",
+    "size": 10491,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "pulsar-white-sf.png",
     "type": "file",
     "path": "pulsar-white-sf.png",
