@@ -1600,6 +1600,14 @@
     "extension": ".png"
   },
   {
+    "name": "nicec0re.webp",
+    "type": "file",
+    "path": "nicec0re.webp",
+    "size": 24616,
+    "isImage": true,
+    "extension": ".webp"
+  },
+  {
     "name": "nodejs.install.png",
     "type": "file",
     "path": "nodejs.install.png",
