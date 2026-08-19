@@ -2088,6 +2088,14 @@
     "extension": ".gif"
   },
   {
+    "name": "tube-os-simple-sf.png",
+    "type": "file",
+    "path": "tube-os-simple-sf.png",
+    "size": 1352667,
+    "isImage": true,
+    "extension": ".png"
+  },
+  {
     "name": "tuby.gif",
     "type": "file",
     "path": "tuby.gif",
