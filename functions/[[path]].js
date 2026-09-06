@@ -46,9 +46,10 @@ export async function onRequest(context) {
 
   const asset = resolve(decoded);
   if (asset) {
-    // Proxy de preview: GitHub sirve todo como octet-stream y los navegadores
-    // no renderizan SVG en <img> con ese MIME; se re-sirve con el suyo real.
-    if (isPreview && /\.svg$/i.test(decoded)) {
+    // SVG: GitHub sirve todo como octet-stream y los navegadores no renderizan
+    // SVG en <img> con ese MIME. Se re-sirve inline con su MIME real tanto en
+    // /preview/ (página nueva) como en /cdn/ (página con caché antigua del edge).
+    if (/\.svg$/i.test(decoded) && (isPreview || isCdn || pathname === '/' + decoded)) {
       const res = await fetch(asset.url, { redirect: 'follow' });
       const body = await res.arrayBuffer();
       return new Response(body, {
