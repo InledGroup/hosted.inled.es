@@ -544,6 +544,7 @@ const allItems = fileIndex;
                 path: a.name,
                 size: a.size,
                 isImage: ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp', '.ico'].includes(getFileExtension(a.name)),
+                isSvg: getFileExtension(a.name) === '.svg',
                 extension: getFileExtension(a.name),
                 releaseAsset: true,
                 _url: '/cdn/' + encodeURIComponent(a.name)
@@ -563,6 +564,7 @@ const allItems = fileIndex;
                   path: a.name,
                   size: a.size,
                   isImage: ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp', '.ico'].includes(getFileExtension(a.name)),
+                  isSvg: getFileExtension(a.name) === '.svg',
                   extension: getFileExtension(a.name),
                   releaseAsset: true,
                   _url: '/cdn/' + encodeURIComponent(a.name)
@@ -618,11 +620,12 @@ const allItems = fileIndex;
           const isVideo = VIDEO_EXTENSIONS.includes(getFileExtension(item.name));
           const isReleaseAsset = !!item.releaseAsset;
           const linkUrl = isReleaseAsset ? item._url : publicPath;
+          const previewSrc = item.isSvg && isReleaseAsset ? '/preview/' + encodeURIComponent(item.name) : linkUrl;
           const copyUrlFor = isReleaseAsset ? `https://hosted.inled.es${item._url}` : '';
           const preview = isFolder
             ? `<i class="fas fa-folder folder-icon"></i>`
             : item.isImage
-              ? `<img src="${linkUrl}" alt="${item.name}" loading="lazy" style="object-fit: contain; background: var(--accent, #f1f5f9); width: 100%; height: 100%;" />`
+              ? `<img src="${previewSrc}" alt="${item.name}" loading="lazy" style="object-fit: contain; background: var(--accent, #f1f5f9); width: 100%; height: 100%;" />`
               : isVideo
                 ? `<video src="${linkUrl}" preload="metadata" muted playsinline style="width:100%; height:100%; object-fit:contain; background:#020617;"></video>`
                 : `<i class="fas ${getFileIcon(item.extension)} file-icon"></i>`;
