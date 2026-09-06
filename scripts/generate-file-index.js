@@ -77,17 +77,43 @@ console.log(`📍 Source: ${srcOutputFile}`);
 
 // --- GENERAR _REDIRECTS CON REGLA MAESTRA (SPLAT) ---
 // Esta configuración protege la infraestructura de la web y redirige todo lo demás a /1/
+
+// Cargar el índice de assets de releases (si existe) para emitir rutas /cdn/<archivo> y /<archivo>
+const releaseAssetsFile = path.join(__dirname, '../public/release-assets.json');
+let cdnRules = '';
+try {
+  if (fs.existsSync(releaseAssetsFile)) {
+    const data = JSON.parse(fs.readFileSync(releaseAssetsFile, 'utf8'));
+    if (Array.isArray(data.assets)) {
+      cdnRules = data.assets
+        .map(a => `/cdn/${encodeURIComponent(a.name)} ${a.url} 302\n/${encodeURIComponent(a.name)} ${a.url} 302`)
+        .join('\n');
+      if (cdnRules) cdnRules += '\n';
+      console.log(`🔗 Emitted ${data.assets.length} /cdn/ + /<name> redirect rules`);
+    }
+  }
+} catch (error) {
+  console.warn('No se pudo leer release-assets.json, se omite el mapeo /cdn/:', error.message);
+}
+
 const redirectsContent = `# Cloudflare Pages Redirects - Master Splat Rule
 # 1. Excepciones Críticas (Evitan que la web se rompa)
 /              /index.html    200
 /index.html    /index.html    200
 /favicon.ico   /favicon.ico   200
 /file-index.json /file-index.json 200
+/release-assets.json /release-assets.json 200
 /api/*         /api/:splat    200
 /_astro/*      /_astro/:splat 200
 /1/*           /1/:splat      200
 
-# 2. Regla Maestra (Todo lo que no coincida arriba, búscalo en /1/)
+# 2. CDN de Assets (Release de GitHub, hasta 2 GB por archivo)
+# Reglas específicas por archivo (la rotación puede repartirlos en assets, assets-2, ...)
+# Se emiten dos reglas por asset: /cdn/<archivo> y /<archivo> (esta última preserva las URLs antiguas)
+${cdnRules}# Regla genérica de respaldo para assets aún no indexados (apunta a la release 'assets')
+/cdn/*         https://github.com/InledGroup/hosted.inled.es/releases/download/assets/:splat  302
+
+# 3. Regla Maestra (Todo lo que no coincida arriba, búscalo en /1/)
 # Esto permite enlaces antiguos como /mi-imagen.png -> /1/mi-imagen.png
 /*             /1/:splat      200
 `;

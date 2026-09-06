@@ -1,0 +1,44 @@
+name: Sync Release Assets Index
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  sync-assets-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Release Assets Index
+        run: node scripts/generate-assets-index.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/release-assets.json src/data/release-assets.json
+
+          if git diff --staged --quiet; then
+            echo "No changes in release assets index. Skipping commit."
+          else
+            git commit -m "[SYSTEM] Sync release assets index [skip ci]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
