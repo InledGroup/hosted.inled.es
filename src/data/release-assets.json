@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T19:27:56.693Z",
-  "count": 289,
+  "generated_at": "2026-09-07T19:29:13.854Z",
+  "count": 290,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -905,6 +905,14 @@
       "release": "assets",
       "content_type": "image/jpeg",
       "uploaded_at": "2026-09-06T21:06:42Z"
+    },
+    {
+      "name": "foto-elegida-por-mi.jpg",
+      "size": 70,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/foto-elegida-por-mi.jpg",
+      "release": "assets",
+      "content_type": "image/jpeg",
+      "uploaded_at": "2026-09-07T19:29:11Z"
     },
     {
       "name": "fundacionwebinled.es_.gif",
