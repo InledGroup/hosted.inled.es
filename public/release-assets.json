@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T16:34:53.466Z",
-  "count": 287,
+  "generated_at": "2026-09-07T19:02:24.894Z",
+  "count": 288,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -401,6 +401,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:26Z"
+    },
+    {
+      "name": "ai.png",
+      "size": 31385,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/ai.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-09-07T19:02:22Z"
     },
     {
       "name": "aicloud.png",
