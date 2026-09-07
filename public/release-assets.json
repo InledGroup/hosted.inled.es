@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T19:02:24.894Z",
+  "generated_at": "2026-09-07T19:07:03.848Z",
   "count": 288,
   "assets": [
     {
@@ -401,14 +401,6 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:26Z"
-    },
-    {
-      "name": "ai.png",
-      "size": 31385,
-      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/ai.png",
-      "release": "assets",
-      "content_type": "image/png",
-      "uploaded_at": "2026-09-07T19:02:22Z"
     },
     {
       "name": "aicloud.png",
@@ -1241,6 +1233,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:53Z"
+    },
+    {
+      "name": "issue-3-1.png",
+      "size": 972658,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/issue-3-1.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-09-07T19:07:01Z"
     },
     {
       "name": "launch-the-launcher-logo-animated.gif",
