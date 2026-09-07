@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T19:42:27.477Z",
-  "count": 290,
+  "generated_at": "2026-09-07T20:04:52.520Z",
+  "count": 291,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -2153,6 +2153,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:48Z"
+    },
+    {
+      "name": "ultimateos-macos-macboat.png",
+      "size": 245803,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/ultimateos-macos-macboat.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-09-07T20:04:50Z"
     },
     {
       "name": "un-telefono-gritando-cuidado.png",
