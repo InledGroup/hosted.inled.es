@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T19:24:12.508Z",
-  "count": 290,
+  "generated_at": "2026-09-07T19:27:56.693Z",
+  "count": 289,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -779,14 +779,6 @@
       "uploaded_at": "2026-09-06T21:06:38Z"
     },
     {
-      "name": "default.bin",
-      "size": 70,
-      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/default.bin",
-      "release": "assets",
-      "content_type": "application/octet-stream",
-      "uploaded_at": "2026-09-07T19:24:10Z"
-    },
-    {
       "name": "definicion-de-hacker.png",
       "size": 162750,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/definicion-de-hacker.png",
@@ -1544,7 +1536,7 @@
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/mi-foto-prueba.png",
       "release": "assets",
       "content_type": "image/png",
-      "uploaded_at": "2026-09-07T19:23:24Z"
+      "uploaded_at": "2026-09-07T19:27:55Z"
     },
     {
       "name": "microslop-insuite.png",
