@@ -1,6 +1,5 @@
 ---
 import fileIndex from '../data/file-index.json';
-import UploadModal from '../components/UploadModal.astro';
 
 export const prerender = true;
 
@@ -444,9 +443,9 @@ const allItems = fileIndex;
             <a href="https://github.com/InledGroup/hosted.inled.es/releases/latest/download/Hostify-Engine.zip" class="btn btn-outline">
               <i class="fas fa-file-archive"></i> Hostify (.zip)
             </a>
-            <button id="openUploadBtn" class="btn btn-primary">
+            <a id="openUploadBtn" class="btn btn-primary" href="https://github.com/InledGroup/hosted.inled.es/issues/new?template=upload.md" target="_blank" rel="noopener">
               <i class="fas fa-cloud-upload-alt"></i> Subir
-            </button>
+            </a>
           </div>
         </div>
         <div class="breadcrumb" id="breadcrumb">
@@ -474,8 +473,6 @@ const allItems = fileIndex;
     </div>
 
     <div id="toast" class="toast"></div>
-
-    <UploadModal />
 
     <script is:inline define:vars={{ allItems }}>
       // Estado de la aplicación
