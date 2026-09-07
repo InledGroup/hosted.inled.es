@@ -20,6 +20,8 @@ _Tamaño máximo: 2 GB por archivo. Formatos permitidos: imágenes, GIFs, vídeo
 
 ## Nombre del archivo (opcional)
 
-_Si subes un solo archivo y quieres guardarlo con otro nombre, escríbelo aquí (con extensión, ej: `mi-imagen.png`). Si lo dejas en blanco o subes varios, se usará el nombre original del archivo._
+_IMPORTANTE: Cuando arrastras archivos, GitHub suele guardarlos sin su nombre original. Si quieres que el archivo se llame de cierta manera, escríbelo AQUÍ (con extensión, ej: `mi-imagen.png`). Solo se aplica cuando subes un único archivo; si lo dejas en blanco, se usará el nombre que GitHub conserve del archivo._
+
+**Nombre:**
 
 **Nombre:**
