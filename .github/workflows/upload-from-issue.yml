@@ -1,0 +1,112 @@
+name: Process Upload Issue
+
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: upload-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  process-upload:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'upload') ||
+      contains(github.event.issue.body || '', 'user-images.githubusercontent.com') ||
+      contains(github.event.issue.body || '', 'user-attachments')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Acknowledge upload (1/4)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const num = context.issue.number;
+
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: 'upload' });
+            } catch {
+              await github.rest.issues.createLabel({ owner, repo, name: 'upload', color: 'd4a72c' });
+            }
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: num, labels: ['upload'] });
+            } catch {}
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: num,
+              body: `✅ **Subida recibida.** (1/4) Procesando archivos adjuntos…`
+            });
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Descargar y subir archivos (2/4)
+        id: upload
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GH_ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/process-upload-issue.js
+
+      - name: Regenerar índice de assets (3/4)
+        run: node scripts/generate-assets-index.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit y push del índice
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/release-assets.json src/data/release-assets.json
+
+          if git diff --staged --quiet; then
+            echo "No changes in release assets index. Skipping commit."
+          else
+            git commit -m "[SYSTEM] Sync release assets index [skip ci]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Completado - cerrar issue (4/4)
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const num = context.issue.number;
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: num,
+              body: `✅ **¡Listo!** Se subieron **${{ steps.upload.outputs.count }}** archivo(s) al hosting. El índice se actualizará en breve.\n\nCerrando issue.`
+            });
+            await github.rest.issues.update({ owner, repo, issue_number: num, state: 'closed' });
+
+      - name: Error - cerrar issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const num = context.issue.number;
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: num,
+              body: '❌ **Error al procesar la subida.** Revisa los logs del workflow. Cerrando issue.'
+            });
+            await github.rest.issues.update({ owner, repo, issue_number: num, state: 'closed' });
