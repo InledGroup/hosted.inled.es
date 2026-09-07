@@ -75,23 +75,11 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes in release assets index. Skipping commit."
           else
-            git commit -m "[SYSTEM] Sync release assets index [skip ci]"
+            git commit -m "[SYSTEM] Sync release assets index"
             git push
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Reconstruir la web (Cloudflare Pages)
-        if: success()
-        env:
-          CLOUDFLARE_PAGES_BUILD_HOOK: ${{ secrets.CLOUDFLARE_PAGES_BUILD_HOOK }}
-        run: |
-          if [ -n "$CLOUDFLARE_PAGES_BUILD_HOOK" ]; then
-            curl -fsS -X POST "$CLOUDFLARE_PAGES_BUILD_HOOK" >/dev/null
-            echo "Rebuild de Cloudflare Pages disparado."
-          else
-            echo "Secret CLOUDFLARE_PAGES_BUILD_HOOK no configurado. Omitiendo rebuild."
-          fi
 
       - name: Completado - cerrar issue (4/4)
         if: success()

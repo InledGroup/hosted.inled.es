@@ -37,7 +37,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes in release assets index. Skipping commit."
           else
-            git commit -m "[SYSTEM] Sync release assets index [skip ci]"
+            git commit -m "[SYSTEM] Sync release assets index"
             git push
           fi
         env:
