@@ -30,6 +30,11 @@ function sanitizeName(name) {
   return name.replace(/\s+/g, '-');
 }
 
+function urlBase(url) {
+  const noQuery = url.split(/[?#]/)[0];
+  return decodeBase(noQuery.split('/').pop() || '');
+}
+
 async function fetchJson(url, opts = {}) {
   const res = await fetch(url, { ...opts, headers: { ...apiHeaders, ...(opts.headers || {}) } });
   if (!res.ok) {
@@ -147,6 +152,27 @@ function decodeBase(url) {
   }
 }
 
+// Nombre en la marca de la imagen, p.ej: ![mi-foto.png](url)
+function markdownAlt(body, url) {
+  const esc = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`!\\[([^\\]]*)\\]\\(\\s*${esc}\\s*\\)`);
+  const m = body.match(re);
+  return m ? m[1].trim() : '';
+}
+
+// Nombre pedido explícitamente en el campo "**Nombre:**" de la plantilla
+function requestedName(body) {
+  const m = body.match(/^\s*\*{0,2}Nombre\*{0,2}:?\*{0,2}\s*(\S.*)$/mi);
+  return m ? m[1].trim() : '';
+}
+
+// GitHub incluye el nombre original en la URL final de los adjuntos nuevos (user-attachments)
+function originalNameFromFinalUrl(resUrl) {
+  const m = /[?&]filename=([^&#]+)/i.exec(resUrl) || /[?&]name=([^&#]+)/i.exec(resUrl);
+  if (m) return decodeBase(m[1].split('?')[0]).trim();
+  return '';
+}
+
 async function main() {
   const urls = extractImageUrls(issueBody);
   if (urls.length === 0) {
@@ -154,6 +180,8 @@ async function main() {
     console.error('No image URLs found in issue body.');
     process.exit(1);
   }
+
+  const customName = requestedName(issueBody);
 
   await postComment(`⏳ (2/4) Se detectaron **${urls.length}** archivo(s). Descargando y subiendo…`);
   const release = await getOrCreateAssetsRelease();
@@ -167,9 +195,27 @@ async function main() {
     const buffer = Buffer.from(await res.arrayBuffer());
     const contentType = (res.headers.get('content-type') || 'application/octet-stream').split(';')[0].trim().toLowerCase();
 
-    let fileName = decodeBase(url.split(/[?#]/)[0].split('/').pop() || '');
-    if (!path.extname(fileName)) {
-      fileName = `issue-${issueNumber}-${i + 1}${TYPE_TO_EXT[contentType] || '.bin'}`;
+    // 1. Preferencia: nombre explícito en la plantilla (solo si hay un único archivo)
+    // 2. Nombre original recuperado de la URL final de GitHub (parámetro filename=)
+    // 3. Alt text de la imagen (solo si incluye extensión, para ignorar el "image" genérico)
+    // 4. Última parte del path original
+    let fileName;
+    if (urls.length === 1 && customName) {
+      fileName = customName;
+    } else {
+      const fromFinal = originalNameFromFinalUrl(res.url || url);
+      if (fromFinal) {
+        fileName = fromFinal;
+      } else {
+        const rawAlt = markdownAlt(issueBody, url);
+        fileName = path.extname(rawAlt) ? rawAlt : urlBase(url) || '';
+      }
+    }
+
+    if (!fileName || !path.extname(fileName)) {
+      fileName = fileName || `issue-${issueNumber}`;
+      const ext = TYPE_TO_EXT[contentType] || '.bin';
+      if (!path.extname(fileName)) fileName = `${fileName}${ext}`;
     }
     fileName = sanitizeName(fileName);
 

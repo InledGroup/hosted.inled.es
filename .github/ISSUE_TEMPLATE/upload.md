@@ -17,3 +17,9 @@ _Descripción breve del archivo que subes._
 No es necesario tocar el título ni la descripción: el workflow se encarga de procesar lo que adjuntes, irá comentando el progreso en esta misma issue y la cerrará automáticamente al terminar.
 
 _Tamaño máximo: 2 GB por archivo. Formatos permitidos: imágenes, GIFs, vídeos, audio, etc._
+
+## Nombre del archivo (opcional)
+
+_Si subes un solo archivo y quieres guardarlo con otro nombre, escríbelo aquí (con extensión, ej: `mi-imagen.png`). Si lo dejas en blanco o subes varios, se usará el nombre original del archivo._
+
+**Nombre:**
