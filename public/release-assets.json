@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T19:31:39.802Z",
-  "count": 288,
+  "generated_at": "2026-09-07T19:41:14.618Z",
+  "count": 289,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -337,6 +337,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:23Z"
+    },
+    {
+      "name": "Nombre.png",
+      "size": 972658,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/Nombre.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-09-07T19:41:13Z"
     },
     {
       "name": "Safari-iOS-Logo-2017-present.png",
