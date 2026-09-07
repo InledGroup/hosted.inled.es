@@ -163,7 +163,10 @@ function markdownAlt(body, url) {
 // Nombre pedido explícitamente en el campo "**Nombre:**" de la plantilla
 function requestedName(body) {
   const m = body.match(/^\s*\*{0,2}Nombre\*{0,2}:?\*{0,2}\s*(\S.*)$/mi);
-  return m ? m[1].trim() : '';
+  if (!m) return '';
+  const name = m[1].replace(/^\*+|\*+$/g, '').replace(/`/g, '').trim();
+  if (name && !/^[*_~#-]+$/.test(name) && !/^[0-9]+$/.test(name)) return name;
+  return '';
 }
 
 // GitHub incluye el nombre original en la URL final de los adjuntos nuevos (user-attachments)
