@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T19:29:13.854Z",
-  "count": 290,
+  "generated_at": "2026-09-07T19:31:39.802Z",
+  "count": 288,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -907,14 +907,6 @@
       "uploaded_at": "2026-09-06T21:06:42Z"
     },
     {
-      "name": "foto-elegida-por-mi.jpg",
-      "size": 70,
-      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/foto-elegida-por-mi.jpg",
-      "release": "assets",
-      "content_type": "image/jpeg",
-      "uploaded_at": "2026-09-07T19:29:11Z"
-    },
-    {
       "name": "fundacionwebinled.es_.gif",
       "size": 2831296,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/fundacionwebinled.es_.gif",
@@ -1537,14 +1529,6 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:16Z"
-    },
-    {
-      "name": "mi-foto-prueba.png",
-      "size": 70,
-      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/mi-foto-prueba.png",
-      "release": "assets",
-      "content_type": "image/png",
-      "uploaded_at": "2026-09-07T19:27:55Z"
     },
     {
       "name": "microslop-insuite.png",
