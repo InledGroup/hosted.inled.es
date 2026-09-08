@@ -1,0 +1,16 @@
+# Evita cachear HTML para que los deploys se vean al momento
+/
+  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+
+# Los archivos JSON de índice también deben revalidarse (cambian en cada subida)
+/file-index.json
+  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+
+/release-assets.json
+  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate

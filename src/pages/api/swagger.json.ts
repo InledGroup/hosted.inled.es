@@ -5,17 +5,17 @@ export const GET: APIRoute = () => {
     openapi: "3.0.0",
     info: {
       title: "Hostify API",
-      description: "API para la gestión de archivos y descarga del motor Hostify.",
+      description: "API for managing files and downloading the Hostify engine.",
       version: "1.0.1"
     },
     paths: {
       "/api/files": {
         get: {
-          summary: "Listar todos los archivos",
-          description: "Obtiene el índice completo de archivos del repositorio. No soporta parámetros de búsqueda, ya que esta debe ser implementada en el cliente.",
+          summary: "List all files",
+          description: "Gets the complete file index of the repository. No search parameters are supported, as search must be implemented on the client side.",
           responses: { 
             200: { 
-              description: "Lista completa de archivos en formato JSON",
+              description: "Complete list of files in JSON format",
               content: {
                 "application/json": {
                   schema: {
@@ -47,9 +47,9 @@ export const GET: APIRoute = () => {
       },
       "/api/template": {
         get: {
-          summary: "Descargar Hostify Motor (.zip)",
-          description: "Redirige a la última versión del código fuente de Hostify para replicar el nodo.",
-          responses: { 302: { description: "Redirección al zip de GitHub" } }
+          summary: "Download Hostify Engine (.zip)",
+          description: "Redirects to the latest version of the Hostify source code to replicate the node.",
+          responses: { 302: { description: "Redirect to the GitHub zip" } }
         }
       }
     }

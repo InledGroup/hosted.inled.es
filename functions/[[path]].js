@@ -101,25 +101,30 @@ function renderAssetPage({ name, contentUrl, size }) {
 
   const sizeLabel = size ? formatBytes(size) : '';
 
+  const loadingState = `
+    <div class="preview-state" data-state="loading"><div class="spinner"></div></div>
+    <div class="preview-state hidden" data-state="error"><i class="fas fa-exclamation-triangle"></i><span>Failed to load</span></div>`;
+
   let previewHtml;
   if (isImage) {
-    previewHtml = `<div class="preview-media preview-image"><img src="${contentUrl}" alt="${esc(name)}" /></div>`;
+    previewHtml = `<div class="preview-media preview-image preview-load">${loadingState}<img src="${contentUrl}" alt="${esc(name)}" onload="previewLoaded(this)" onerror="previewError(this)" /></div>`;
   } else if (isVideo) {
-    previewHtml = `<div class="preview-media"><video src="${contentUrl}" controls preload="metadata"></video></div>`;
+    previewHtml = `<div class="preview-media preview-load preview-load-video">${loadingState}<video src="${contentUrl}" controls preload="metadata" onloadeddata="previewLoaded(this)" onerror="previewError(this)"></video></div>`;
   } else if (isAudio) {
-    previewHtml = `<div class="preview-media preview-audio"><audio src="${contentUrl}" controls></audio></div>`;
+    previewHtml = `<div class="preview-media preview-audio preview-load">${loadingState}<audio src="${contentUrl}" controls onloadeddata="previewLoaded(this)" onerror="previewError(this)"></audio></div>`;
   } else {
     previewHtml = `<div class="preview-icon"><i class="fas ${getFileIcon(ext)}"></i></div>`;
   }
 
   const pageUrl = `https://hosted.inled.es/asset/${encodeURIComponent(name)}`;
-  const typeLabel = ext ? ext.slice(1).toUpperCase() : 'ARCHIVO';
+  const typeLabel = ext ? ext.slice(1).toUpperCase() : 'FILE';
 
   return `<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Download, share and preview this asset hosted on hosted.inled.es">
 <title>${esc(name)} · Hostify</title>
 <link rel="icon" type="image/png" href="/hostify.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -145,6 +150,17 @@ a{text-decoration:none;color:inherit;}
 .preview-image{padding:1.5rem;background:var(--accent);}
 .preview-icon{display:flex;align-items:center;justify-content:center;padding:3.5rem;background:var(--accent);border-bottom:1px solid var(--border);}
 .preview-icon i{font-size:5rem;color:var(--muted-2);}
+.preview-load{position:relative;}
+.preview-load-video{background:#020617;}
+.preview-load img,.preview-load video,.preview-load audio{position:relative;z-index:2;opacity:0;transition:opacity .2s ease;}
+.preview-load img.loaded,.preview-load video.loaded,.preview-load audio.loaded{opacity:1;}
+.preview-state{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--muted-2);pointer-events:none;}
+.preview-state[data-state="loading"]{cursor:progress;}
+.preview-state[data-state="error"] i{font-size:1.75rem;color:#f59e0b;}
+.preview-state[data-state="error"] span{font-size:.75rem;color:var(--muted);font-weight:500;}
+.spinner{width:2rem;height:2rem;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hidden{display:none !important;}
 .body{padding:1.5rem;}
 .meta{margin-bottom:1.25rem;}
 .name{font-size:1.125rem;font-weight:700;color:var(--foreground);word-break:break-word;margin-bottom:.375rem;}
@@ -170,7 +186,7 @@ a{text-decoration:none;color:inherit;}
 <body>
 <div class="header">
   <a class="brand" href="/"><img src="/hostify.png" alt="Hostify"/>Hostify</a>
-  <a class="back" href="/"><i class="fas fa-arrow-left"></i> Volver</a>
+  <a class="back" href="/"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 <div class="container">
   <div class="card">
@@ -185,15 +201,15 @@ a{text-decoration:none;color:inherit;}
         </div>
       </div>
       <div class="actions">
-        <a class="btn btn-primary" href="${contentUrl}" download="${esc(name)}"><i class="fas fa-download"></i> Descargar</a>
-        <button class="btn btn-outline" id="shareBtn"><i class="fas fa-share-alt"></i> Compartir</button>
-        <button class="btn btn-outline" id="copyAssetBtn"><i class="fas fa-copy"></i> Copiar asset</button>
+        <a class="btn btn-primary" href="${contentUrl}" download="${esc(name)}"><i class="fas fa-download"></i> Download</a>
+        <button class="btn btn-outline" id="shareBtn"><i class="fas fa-share-alt"></i> Share</button>
+        <button class="btn btn-outline" id="copyAssetBtn"><i class="fas fa-copy"></i> Copy asset</button>
       </div>
       <div class="url-box">
-        <div class="url-label"><i class="fas fa-link"></i> Enlace público</div>
+        <div class="url-label"><i class="fas fa-link"></i> Public link</div>
         <div class="url-input">
           <input id="pageUrl" type="text" value="${esc(pageUrl)}" readonly onclick="this.select()">
-          <button class="btn btn-outline" id="copyUrlBtn"><i class="fas fa-copy"></i> Copiar</button>
+          <button class="btn btn-outline" id="copyUrlBtn"><i class="fas fa-copy"></i> Copy</button>
         </div>
       </div>
     </div>
@@ -215,13 +231,30 @@ a{text-decoration:none;color:inherit;}
   }
   function fallbackCopy(text,okMsg){
     const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy');showToast('<i class="fas fa-check-circle"></i> '+okMsg);}catch(e){showToast('<i class="fas fa-exclamation-circle"></i> No se pudo copiar');}
+    try{document.execCommand('copy');showToast('<i class="fas fa-check-circle"></i> '+okMsg);}catch(e){showToast('<i class="fas fa-exclamation-circle"></i> Could not copy');}
     document.body.removeChild(ta);
   }
-  document.getElementById('copyUrlBtn').addEventListener('click',function(){copyText(pageUrl,'Enlace copiado al portapapeles');});
+  function previewLoaded(media){
+    const wrap=media.closest('.preview-load');
+    media.classList.add('loaded');
+    if(wrap){
+      const loading=wrap.querySelector('[data-state="loading"]');if(loading)loading.classList.add('hidden');
+      const err=wrap.querySelector('[data-state="error"]');if(err)err.classList.add('hidden');
+    }
+  }
+  function previewError(media){
+    const wrap=media.closest('.preview-load');
+    if(wrap){
+      const loading=wrap.querySelector('[data-state="loading"]');if(loading)loading.classList.add('hidden');
+      const err=wrap.querySelector('[data-state="error"]');if(err)err.classList.remove('hidden');
+    }
+  }
+  window.previewLoaded=previewLoaded;
+  window.previewError=previewError;
+  document.getElementById('copyUrlBtn').addEventListener('click',function(){copyText(pageUrl,'Link copied to clipboard');});
   document.getElementById('shareBtn').addEventListener('click',function(){
     if(navigator.share){navigator.share({title:name,url:pageUrl}).catch(function(){});}
-    else{copyText(pageUrl,'Enlace copiado al portapapeles');}
+    else{copyText(pageUrl,'Link copied to clipboard');}
   });
   document.getElementById('copyAssetBtn').addEventListener('click',async function(){
     try{
@@ -230,12 +263,12 @@ a{text-decoration:none;color:inherit;}
       const blob=await res.blob();
       if(navigator.clipboard && navigator.clipboard.write && window.ClipboardItem && blob.type && blob.type!=='application/octet-stream' && blob.type.indexOf('text/')!==0){
         await navigator.clipboard.write([new ClipboardItem({[blob.type]:blob})]);
-        showToast('<i class="fas fa-check-circle"></i> Asset copiado al portapapeles');
+        showToast('<i class="fas fa-check-circle"></i> Asset copied to clipboard');
       } else {
-        copyText(contentUrl,'Enlace del asset copiado al portapapeles');
+        copyText(contentUrl,'Asset link copied to clipboard');
       }
     }catch(e){
-      copyText(contentUrl,'Enlace del asset copiado al portapapeles');
+      copyText(contentUrl,'Asset link copied to clipboard');
     }
   });
 })();
