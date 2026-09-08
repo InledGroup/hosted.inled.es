@@ -3,12 +3,16 @@
 // regenera el índice de assets y lo commitea/pushea (opcional).
 //
 // Uso:
-//   node scripts/upload-asset.js <archivo> [--name nombre.ext] [--repo InledGroup/hosted.inled.es] [--no-push]
+//   node scripts/upload-asset.js [--name nombre.ext] [--repo InledGroup/hosted.inled.es] [--no-push]
+//
+// Sin argumentos abre el selector de archivos nativo del sistema
+// (zenity/kdialog/qarma/matedialog/yad), o pide la ruta por consola.
 //
 // Autenticación (en orden): $GITHUB_TOKEN, o el token de la CLI `gh`.
 
 import fs from 'fs';
 import path from 'path';
+import readline from 'readline';
 import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -53,6 +57,38 @@ const EXT_TO_TYPE = {
 
 function sanitizeName(name) {
   return name.replace(/\s+/g, '-');
+}
+
+// Abre el selector de archivos nativo del sistema (GTK/Qt) y devuelve la ruta elegida.
+// Si no hay entorno gráfico, pide la ruta por consola.
+function pickFile() {
+  const pickers = [
+    { bin: 'zenity', args: ['--file-selection', '--title=Selecciona el archivo a subir'] },
+    { bin: 'kdialog', args: ['--getopenfilename', '.'] },
+    { bin: 'qarma', args: ['--file-selection', '--title=Selecciona el archivo a subir'] },
+    { bin: 'matedialog', args: ['--file-selection', '--title=Selecciona el archivo a subir'] },
+    { bin: 'yad', args: ['--file', '--title=Selecciona el archivo a subir'] }
+  ];
+
+  for (const p of pickers) {
+    const which = spawnSync('which', [p.bin], { encoding: 'utf8' });
+    if (which.status !== 0) continue;
+    const res = spawnSync(p.bin, p.args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    if (res.status === 1) {
+      console.log('Cancelado.');
+      process.exit(0);
+    }
+    if (res.status === 0 && res.stdout && res.stdout.trim()) return res.stdout.trim();
+    break;
+  }
+
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question('No se encontró un selector gráfico. Pega la ruta del archivo a subir: ', (answer) => {
+      rl.close();
+      resolve(answer.trim());
+    });
+  });
 }
 
 async function fetchJson(url, opts = {}) {
@@ -170,13 +206,12 @@ const { positional, opts } = args();
 const repo = opts.repo || DEFAULT_REPO;
 let apiHeaders;
 
-function main() {
+async function main() {
   if (positional.length < 1) {
-    console.error('Uso: node scripts/upload-asset.js <archivo> [--name nombre.ext] [--repo ...] [--no-push]');
-    process.exit(1);
+    console.log('Abriendo selector de archivos…');
   }
 
-  const filePath = path.resolve(positional[0]);
+  const filePath = positional.length >= 1 ? path.resolve(positional[0]) : await pickFile();
   if (!fs.existsSync(filePath)) {
     console.error(`No existe el archivo: ${filePath}`);
     process.exit(1);
@@ -204,41 +239,38 @@ function main() {
 
   console.log(`📦 Subiendo: ${fileName} (${(size / (1024 * 1024)).toFixed(1)} MB) → ${repo}`);
 
-  getOrCreateAssetsRelease()
-    .then(async (release) => {
-      const existing = await getPaginated(`https://api.github.com/repos/${repo}/releases/${release.id}/assets`);
-      const dup = existing.find(a => a.name === fileName);
-      if (dup) {
-        console.log(`♻️ Reemplazando asset existente "${fileName}".`);
-        await deleteAsset(dup.id);
-      }
-      const asset = await uploadAsset(release, fileName, filePath, contentType);
-      console.log(`✅ Subido: ${asset.browser_download_url}`);
+  const release = await getOrCreateAssetsRelease();
+  const existing = await getPaginated(`https://api.github.com/repos/${repo}/releases/${release.id}/assets`);
+  const dup = existing.find(a => a.name === fileName);
+  if (dup) {
+    console.log(`♻️ Reemplazando asset existente "${fileName}".`);
+    await deleteAsset(dup.id);
+  }
+  const asset = await uploadAsset(release, fileName, filePath, contentType);
+  console.log(`✅ Subido: ${asset.browser_download_url}`);
 
-      console.log('\n➡️ Regenerando índice de assets…');
-      runIndexGeneration();
+  console.log('\n➡️ Regenerando índice de assets…');
+  runIndexGeneration();
 
-      console.log('\n➡️ Datos del archivo:');
-      console.log(`   Nombre:     ${asset.name}`);
-      console.log(`   Tamaño:     ${(asset.size / (1024 * 1024)).toFixed(1)} MB`);
-      console.log(`   GitHub URL: ${asset.browser_download_url}`);
-      console.log(`   Host URL:   https://hosted.inled.es/cdn/${encodeURIComponent(asset.name)}`);
+  console.log('\n➡️ Datos del archivo:');
+  console.log(`   Nombre:     ${asset.name}`);
+  console.log(`   Tamaño:     ${(asset.size / (1024 * 1024)).toFixed(1)} MB`);
+  console.log(`   GitHub URL: ${asset.browser_download_url}`);
+  console.log(`   Host URL:   https://hosted.inled.es/cdn/${encodeURIComponent(asset.name)}`);
 
-      if (opts.push) {
-        console.log('\n➡️ Commit y push del índice…');
-        commitAndPush(
-          ['public/release-assets.json', 'src/data/release-assets.json'],
-          '[SYSTEM] Sync release assets index'
-        );
-      } else {
-        console.log('\n⚠️ No se hizo push. Si quieres publicar el índice, ejecuta el commit/push de public/release-assets.json y src/data/release-assets.json.');
-      }
-    })
-    .catch(err => {
-      console.error('Error:', err.message || err);
-      process.exit(1);
-    });
+  if (opts.push) {
+    console.log('\n➡️ Commit y push del índice…');
+    commitAndPush(
+      ['public/release-assets.json', 'src/data/release-assets.json'],
+      '[SYSTEM] Sync release assets index'
+    );
+  } else {
+    console.log('\n⚠️ No se hizo push. Si quieres publicar el índice, ejecuta el commit/push de public/release-assets.json y src/data/release-assets.json.');
+  }
 }
 
 let token;
-main();
+main().catch(err => {
+  console.error('Error:', err.message || err);
+  process.exit(1);
+});
