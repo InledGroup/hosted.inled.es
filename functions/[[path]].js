@@ -296,7 +296,7 @@ export async function onRequest(context) {
         contentType: releaseAsset.contentType,
         size: releaseAsset.size
       });
-      return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+      return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
     }
     // Archivos de la carpeta public/ (se sirven bajo la raíz vía /1/)
     const publicPath = '/' + name;
@@ -306,7 +306,7 @@ export async function onRequest(context) {
       contentType: null,
       size: null
     });
-    return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
   }
 
   const isCdn = pathname.startsWith('/cdn/');

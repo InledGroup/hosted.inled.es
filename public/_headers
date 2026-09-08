@@ -1,16 +1,10 @@
-# Evita cachear HTML para que los deploys se vean al momento
+# Los HTML y JSON deben regenerarse siempre: no-store evita
+# que el navegador Y el edge de Cloudflare cacheen contenido viejo.
 /
-  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
-
-/index.html
-  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+  Cache-Control: no-store
 
 /*.html
-  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+  Cache-Control: no-store
 
-# Los archivos JSON de índice también deben revalidarse (cambian en cada subida)
-/file-index.json
-  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
-
-/release-assets.json
-  Cache-Control: public, max-age=0, s-maxage=0, must-revalidate
+/*.json
+  Cache-Control: no-store
