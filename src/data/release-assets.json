@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-08T12:05:09.429Z",
-  "count": 292,
+  "generated_at": "2026-09-08T14:04:14.694Z",
+  "count": 293,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -353,6 +353,14 @@
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-09-08T12:04:35Z"
+    },
+    {
+      "name": "PulsarAdVertical.mp4",
+      "size": 25263770,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/PulsarAdVertical.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-09-08T14:03:36Z"
     },
     {
       "name": "Safari-iOS-Logo-2017-present.png",
