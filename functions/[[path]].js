@@ -93,7 +93,7 @@ function jsonSafe(str) {
 
 // Genera la página dedicada para un asset. Sirve tanto para release assets
 // (mirror de GitHub) como para archivos de la carpeta public/.
-function renderAssetPage({ name, contentUrl, size }) {
+function renderAssetPage({ name, contentUrl, size, embed = false }) {
   const ext = getExtension(name);
   const isImage = IMAGE_EXTENSIONS.includes(ext);
   const isVideo = VIDEO_EXTENSIONS.includes(ext);
@@ -181,9 +181,14 @@ a{text-decoration:none;color:inherit;}
 .toast i{color:#4ade80;}
 .toast.show{transform:translateX(0);opacity:1;}
 @media(max-width:600px){.actions{grid-template-columns:1fr;}.url-input{flex-direction:column;}}
+body.embed{background:transparent;}
+body.embed .header{display:none;}
+body.embed .container{max-width:none;padding:0;}
+body.embed .card{background:transparent;border-color:transparent;box-shadow:none;border-radius:0;}
+body.embed .card .preview-media{background:transparent;}
 </style>
 </head>
-<body>
+<body class="${embed ? 'embed' : ''}">
 <div class="header">
   <a class="brand" href="/"><img src="/hostify.png" alt="Hostify"/>Hostify</a>
   <a class="back" href="/"><i class="fas fa-arrow-left"></i> Back</a>
@@ -284,6 +289,7 @@ export async function onRequest(context) {
 
   // Página dedicada por asset: /asset/<nombre>
   if (pathname.startsWith('/asset/')) {
+    const isEmbed = url.searchParams.has('embed');
     const raw = pathname.slice('/asset/'.length);
     if (!raw) return next();
     const name = decodeSegment(raw);
@@ -294,7 +300,8 @@ export async function onRequest(context) {
         name,
         contentUrl: '/cdn/' + encodeURIComponent(name),
         contentType: releaseAsset.contentType,
-        size: releaseAsset.size
+        size: releaseAsset.size,
+        embed: isEmbed
       });
       return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
     }
@@ -304,7 +311,8 @@ export async function onRequest(context) {
       name,
       contentUrl: publicPath,
       contentType: null,
-      size: null
+      size: null,
+      embed: isEmbed
     });
     return new Response(page, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
   }

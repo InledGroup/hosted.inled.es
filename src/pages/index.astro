@@ -970,7 +970,8 @@ const allItems = fileIndex;
 
       function copyIframe(assetUrl, assetTitle) {
         const title = (assetTitle || 'Hostify asset').replace(/\\'/g, "'");
-        const code = `<iframe src="${assetUrl}" width="100%" height="600" style="border:none;border-radius:12px" title="${title}" loading="lazy"></iframe>`;
+        const embedUrl = assetUrl + (assetUrl.includes('?') ? '&' : '?') + 'embed=true';
+        const code = `<iframe src="${embedUrl}" width="100%" height="600" style="border:none;border-radius:12px" title="${title}" loading="lazy"></iframe>`;
         navigator.clipboard.writeText(code).then(() => {
           showToast('<i class="fas fa-check-circle"></i> iframe code copied');
         }).catch(() => {
