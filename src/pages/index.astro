@@ -194,7 +194,6 @@ const allItems = fileIndex;
         background: #fff;
         border: 1px solid var(--border);
         border-radius: 0.75rem;
-        overflow: hidden;
         transition: box-shadow 0.2s ease, border-color 0.2s ease;
         display: flex;
         flex-direction: column;
@@ -220,6 +219,8 @@ const allItems = fileIndex;
         overflow: hidden;
         position: relative;
         border-bottom: 1px solid var(--border);
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
       }
 
       .item-preview img,
@@ -337,6 +338,105 @@ const allItems = fileIndex;
         background: var(--accent);
         color: #334155;
         text-decoration: none;
+      }
+
+      .item-actions-wrap {
+        display: flex;
+        gap: 0.5rem;
+        align-items: stretch;
+      }
+
+      .item-actions-wrap .item-actions {
+        flex: 1;
+      }
+
+      .dropdown {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .dropdown-trigger {
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dropdown-trigger.active {
+        background: var(--accent);
+        border-color: #cbd5e1;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 0.375rem);
+        z-index: 300;
+        min-width: 230px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 0.625rem;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+        padding: 0.375rem;
+        display: none;
+        flex-direction: column;
+      }
+
+      .dropdown-menu.open {
+        display: flex;
+      }
+
+      .dropdown-menu .dropdown-title {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted-2);
+        padding: 0.375rem 0.625rem 0.25rem;
+      }
+
+      .dropdown-menu .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        width: 100%;
+        padding: 0.5rem 0.625rem;
+        border: none;
+        background: transparent;
+        border-radius: 0.375rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        font-family: inherit;
+        color: var(--foreground);
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.15s ease;
+      }
+
+      .dropdown-menu .dropdown-item:hover {
+        background: var(--accent);
+      }
+
+      .dropdown-menu .dropdown-item i {
+        width: 1rem;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .dropdown-menu .dropdown-item .item-sub {
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 400;
+        color: var(--muted-2);
+      }
+
+      .dropdown-menu .dropdown-item .item-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+        min-width: 0;
       }
 
       .toast {
@@ -631,6 +731,19 @@ const allItems = fileIndex;
             ? '<i class="fas fa-folder"></i> Carpeta'
             : `<i class="fas fa-database"></i> ${formatBytes(item.size)} <span style="margin: 0 0.25rem;">•</span> ${item.extension.slice(1).toUpperCase()} ${isReleaseAsset ? ' <span class="release-badge"><i class="fas fa-rocket"></i> Release</span>' : ''}`;
 
+          // Identificador para la página dedicada /asset/:nombre
+          // - Release assets: se resuelven por su nombre exacto
+          // - Archivos public: por su ruta completa (codificada para incluir subcarpetas)
+          const assetKey = isReleaseAsset ? item.name : item.path;
+          const assetSlug = encodeURIComponent(assetKey);
+          const assetUrl = `https://hosted.inled.es/asset/${assetSlug}`;
+          const assetContentUrl = isReleaseAsset ? `https://hosted.inled.es${item._url}` : publicPath;
+          const assetTitle = (item.name || '').replace(/"/g, '&quot;').replace(/`/g, '\\`');
+          // Escapar comillas simples para poder insertar en onclick="f('...')"
+          const assetUrlEsc = assetUrl.replace(/'/g, "\\'");
+          const assetTitleEsc = assetTitle.replace(/'/g, "\\'");
+          const assetContentEsc = assetContentUrl.replace(/'/g, "\\'");
+
           return `
             <div class="item" data-name="${item.name.toLowerCase()}" data-type="${item.type}">
               <div class="item-preview">
@@ -643,21 +756,44 @@ const allItems = fileIndex;
                     ${sizeLabel}
                   </div>
                 </div>
-                <div class="item-actions">
-                  ${isFolder ? 
-                    `<button class="btn btn-primary" onclick="navigateTo('${item.path}')">
-                      <i class="fas fa-folder-open"></i> Abrir
-                    </button>` : 
-                    `<button class="btn btn-primary" onclick="copyUrl('${publicPath}', ${!!item.releaseAsset}, '${copyUrlFor}')">
-                      <i class="fas fa-copy"></i> Copiar
+                <div class="item-actions-wrap">
+                  <div class="item-actions">
+                    ${isFolder ? 
+                      `<button class="btn btn-primary" onclick="navigateTo('${item.path}')">
+                        <i class="fas fa-folder-open"></i> Abrir
+                      </button>` : 
+                      `<button class="btn btn-primary" onclick="copyUrl('${publicPath}', ${!!item.releaseAsset}, '${copyUrlFor}')">
+                        <i class="fas fa-copy"></i> Copiar
+                      </button>
+                      <a href="${linkUrl}" download="${item.name}" class="btn btn-outline" style="text-decoration: none;">
+                        <i class="fas fa-download"></i>
+                      </a>
+                      <a href="${linkUrl}" target="_blank" class="btn btn-outline" style="text-decoration: none;">
+                        <i class="fas fa-external-link-alt"></i> Ver
+                      </a>`
+                    }
+                  </div>
+                  ${isFolder ? '' : `
+                  <div class="dropdown">
+                    <button class="btn btn-outline dropdown-trigger" onclick="toggleDropdown(this)" aria-label="Más opciones" title="Más opciones">
+                      <i class="fas fa-ellipsis-v"></i>
                     </button>
-                    <a href="${linkUrl}" download="${item.name}" class="btn btn-outline" style="text-decoration: none;">
-                      <i class="fas fa-download"></i>
-                    </a>
-                    <a href="${linkUrl}" target="_blank" class="btn btn-outline" style="text-decoration: none;">
-                      <i class="fas fa-external-link-alt"></i> Ver
-                    </a>`
-                  }
+                    <div class="dropdown-menu">
+                      <div class="dropdown-title">Opciones</div>
+                      <button class="dropdown-item" onclick="copyAssetPage('${assetUrlEsc}')">
+                        <i class="fas fa-file"></i>
+                        <span class="item-text">Página dedicada<span class="item-sub">Copiar enlace de la página</span></span>
+                      </button>
+                      <button class="dropdown-item" onclick="copyIframe('${assetUrlEsc}', '${assetTitleEsc}')">
+                        <i class="fas fa-code"></i>
+                        <span class="item-text">Código iframe<span class="item-sub">Embeber interfaz de descarga</span></span>
+                      </button>
+                      <button class="dropdown-item" onclick="copyAssetToClipboard('${assetContentEsc}')">
+                        <i class="fas fa-clipboard"></i>
+                        <span class="item-text">Copiar asset<span class="item-sub">Copiar el archivo al portapapeles</span></span>
+                      </button>
+                    </div>
+                  </div>`}
                 </div>
               </div>
             </div>
@@ -731,10 +867,83 @@ const allItems = fileIndex;
         }
       }
 
+      function toggleDropdown(trigger) {
+        const menu = trigger.closest('.dropdown').querySelector('.dropdown-menu');
+        if (!menu) return;
+        const isOpen = menu.classList.contains('open');
+        closeAllDropdowns();
+        if (!isOpen) {
+          menu.classList.add('open');
+          trigger.classList.add('active');
+        }
+      }
+
+      function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown-menu.open').forEach(menu => {
+          menu.classList.remove('open');
+          const trigger = menu.closest('.dropdown').querySelector('.dropdown-trigger');
+          if (trigger) trigger.classList.remove('active');
+        });
+      }
+
+      function copyAssetPage(assetUrl) {
+        navigator.clipboard.writeText(assetUrl).then(() => {
+          showToast('<i class="fas fa-check-circle"></i> Enlace de la página copiado');
+        }).catch(() => {
+          showToast('<i class="fas fa-exclamation-circle"></i> Error al copiar el enlace');
+        });
+      }
+
+      function copyIframe(assetUrl, assetTitle) {
+        const title = (assetTitle || 'Hostify asset').replace(/\\'/g, "'");
+        const code = `<iframe src="${assetUrl}" width="100%" height="600" style="border:none;border-radius:12px" title="${title}" loading="lazy"></iframe>`;
+        navigator.clipboard.writeText(code).then(() => {
+          showToast('<i class="fas fa-check-circle"></i> Código iframe copiado');
+        }).catch(() => {
+          showToast('<i class="fas fa-exclamation-circle"></i> Error al copiar el iframe');
+        });
+      }
+
+      async function copyAssetToClipboard(contentUrl) {
+        try {
+          const res = await fetch(contentUrl, { mode: 'cors' });
+          if (!res.ok) throw new Error('fetch fail');
+          const blob = await res.blob();
+          // Solo imágenes y binarios con tipo real pueden ir como dato binario.
+          // Para el resto, copiamos el enlace de descarga como respaldo.
+          if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem && blob.type && blob.type !== 'application/octet-stream' && blob.type.indexOf('text/') !== 0) {
+            await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+            showToast('<i class="fas fa-check-circle"></i> Asset copiado al portapapeles');
+          } else {
+            navigator.clipboard.writeText(contentUrl).then(() => {
+              showToast('<i class="fas fa-check-circle"></i> Enlace del asset copiado');
+            });
+          }
+        } catch (e) {
+          // Sin red/CORS: copiar el enlace de descarga como respaldo
+          navigator.clipboard.writeText(contentUrl).then(() => {
+            showToast('<i class="fas fa-exclamation-circle"></i> Usando enlace del asset');
+          }).catch(() => {
+            showToast('<i class="fas fa-exclamation-circle"></i> Error al copiar el asset');
+          });
+        }
+      }
+
       // Eventos Globales
       window.navigateTo = navigateTo;
       window.copyUrl = copyUrl;
       window.showToast = showToast;
+      window.toggleDropdown = toggleDropdown;
+      window.copyAssetPage = copyAssetPage;
+      window.copyIframe = copyIframe;
+      window.copyAssetToClipboard = copyAssetToClipboard;
+
+      // Cerrar desplegables al hacer clic fuera
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown')) {
+          closeAllDropdowns();
+        }
+      });
 
       // Manejar botón atrás del navegador
       window.addEventListener('popstate', () => {
