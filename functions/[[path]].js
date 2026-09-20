@@ -20,6 +20,19 @@ for (const a of assets.assets) {
 
 // Tipos MIME y extensiones conocidas para previsualización
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.bmp', '.ico'];
+
+// MIME por extensión: los release assets de GitHub llegan siempre como
+// application/octet-stream, así que el MIME real se deduce del nombre.
+const IMAGE_MIME = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+  '.svg': 'image/svg+xml',
+  '.bmp': 'image/bmp',
+  '.ico': 'image/vnd.microsoft.icon'
+};
 const VIDEO_EXTENSIONS = ['.mp4', '.mov', '.webm', '.mkv', '.avi'];
 const AUDIO_EXTENSIONS = ['.mp3', '.wav', '.ogg', '.flac', '.m4a'];
 
@@ -319,7 +332,11 @@ export async function onRequest(context) {
 
   const isCdn = pathname.startsWith('/cdn/');
   const isPreview = pathname.startsWith('/preview/');
-  const prefix = isCdn ? '/cdn/' : isPreview ? '/preview/' : '/';
+  // /img/: igual que /cdn/ pero re-sirviendo las imágenes inline con su MIME
+  // real, para consumidores estrictos (GitHub Camo) que rechazan el
+  // application/octet-stream de los release assets.
+  const isImg = pathname.startsWith('/img/');
+  const prefix = isCdn ? '/cdn/' : isPreview ? '/preview/' : isImg ? '/img/' : '/';
   const segment = pathname.slice(prefix.length);
   if (!segment) return next();
 
@@ -328,6 +345,23 @@ export async function onRequest(context) {
 
   const asset = resolve(decoded);
   if (asset) {
+    // /img/ + imagen: proxy que re-sirve el asset inline con su MIME real.
+    // Los release assets llegan como application/octet-stream + attachment;
+    // los navegadores los renderizan igual, pero GitHub Camo los rechaza
+    // ("Non-Image content-type returned") y los logos no cargan en los README.
+    if (isImg && IMAGE_EXTENSIONS.includes(getExtension(decoded))) {
+      const ext = getExtension(decoded);
+      const res = await fetch(asset.url, { redirect: 'follow' });
+      const body = await res.arrayBuffer();
+      return new Response(body, {
+        status: res.status,
+        headers: {
+          'Content-Type': IMAGE_MIME[ext] || asset.contentType || 'application/octet-stream',
+          'Content-Disposition': `inline; filename*=UTF-8''${encodeURIComponent(decoded)}`,
+          'Cache-Control': 'public, max-age=86400'
+        }
+      });
+    }
     // SVG: GitHub sirve todo como octet-stream y los navegadores no renderizan
     // SVG en <img> con ese MIME. Se re-sirve inline con su MIME real tanto en
     // /preview/ (página nueva) como en /cdn/ (página con caché antigua del edge).
@@ -346,6 +380,21 @@ export async function onRequest(context) {
   }
 
   // Respaldo para assets recién subidos que aún no están en el índice
+  if (isImg) {
+    const ext = getExtension(segment);
+    if (!IMAGE_EXTENSIONS.includes(ext)) return Response.redirect(ASSETS_BASE + segment, 302);
+    const res = await fetch(ASSETS_BASE + segment, { redirect: 'follow' });
+    if (!res.ok) return new Response('Asset not found', { status: 404 });
+    const body = await res.arrayBuffer();
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': IMAGE_MIME[ext] || 'application/octet-stream',
+        'Content-Disposition': `inline; filename*=UTF-8''${encodeURIComponent(segment)}`,
+        'Cache-Control': 'public, max-age=86400'
+      }
+    });
+  }
   if (isCdn) return Response.redirect(ASSETS_BASE + segment, 302);
   if (isPreview) return Response.redirect(ASSETS_BASE + segment, 302);
 
