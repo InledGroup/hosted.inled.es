@@ -188,10 +188,29 @@ function runIndexGeneration() {
   }
 }
 
+function gitRepoRoot() {
+  // Resuelve la raíz del repo desde la carpeta del script (no del CWD actual),
+  // para que el commit funcione aunque se ejecute como ./scripts/upload-asset.js
+  const res = spawnSync('git', ['rev-parse', '--show-toplevel'], {
+    cwd: path.resolve(__dirname, '..'),
+    encoding: 'utf8'
+  });
+  if (res.status !== 0) {
+    console.error('No se pudo determinar la raíz del repositorio git.');
+    process.exit(1);
+  }
+  return res.stdout.trim();
+}
+
 function commitAndPush(files, message) {
-  const git = (...a) => spawnSync('git', a, { encoding: 'utf8', stdio: 'inherit' });
-  git('add', ...files);
-  const diff = spawnSync('git', ['diff', '--cached', '--quiet'], { encoding: 'utf8' });
+  const repoRoot = gitRepoRoot();
+  const git = (...a) => spawnSync('git', ['-C', repoRoot, ...a], { encoding: 'utf8', stdio: 'inherit' });
+  const add = git('add', ...files);
+  if (add.status !== 0) {
+    console.error('Error al hacer git add de los ficheros del índice.');
+    process.exit(1);
+  }
+  const diff = spawnSync('git', ['-C', repoRoot, 'diff', '--cached', '--quiet'], { encoding: 'utf8' });
   if (diff.status === 0) {
     console.log('No changes in release assets index. Skipping commit.');
     return;

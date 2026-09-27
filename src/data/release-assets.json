@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T15:43:17.779Z",
-  "count": 293,
+  "generated_at": "2026-09-27T18:40:07.999Z",
+  "count": 294,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1713,6 +1713,14 @@
       "release": "assets",
       "content_type": "image/gif",
       "uploaded_at": "2026-09-06T21:07:25Z"
+    },
+    {
+      "name": "openrouter-logo.svg",
+      "size": 563,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/openrouter-logo.svg",
+      "release": "assets",
+      "content_type": "image/svg+xml",
+      "uploaded_at": "2026-09-27T18:40:05Z"
     },
     {
       "name": "openwith-swiftinstall.mp4",
