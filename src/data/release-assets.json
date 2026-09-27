@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T18:40:07.999Z",
-  "count": 294,
+  "generated_at": "2026-09-27T18:55:48.332Z",
+  "count": 295,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -969,6 +969,14 @@
       "release": "assets",
       "content_type": "image/gif",
       "uploaded_at": "2026-09-06T21:06:45Z"
+    },
+    {
+      "name": "groq.webp",
+      "size": 20208,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/groq.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-09-27T18:55:45Z"
     },
     {
       "name": "gsconnect.png",
