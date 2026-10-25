@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T17:08:18.946Z",
-  "count": 295,
+  "generated_at": "2026-10-25T19:12:51.599Z",
+  "count": 296,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -169,6 +169,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:36Z"
+    },
+    {
+      "name": "CorunaJUG2026-rc-03.pdf",
+      "size": 32213307,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/CorunaJUG2026-rc-03.pdf",
+      "release": "assets",
+      "content_type": "application/octet-stream",
+      "uploaded_at": "2026-10-25T19:12:49Z"
     },
     {
       "name": "DSIGN-SIMPLE-WHITE-removebg-preview.png",
