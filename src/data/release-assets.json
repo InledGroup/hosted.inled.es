@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-03T20:14:16.780Z",
-  "count": 297,
+  "generated_at": "2026-11-04T00:44:54.047Z",
+  "count": 299,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -505,6 +505,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:28Z"
+    },
+    {
+      "name": "appinstall-pulsar-pulsaros-demo-OK.mp4",
+      "size": 33734574,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/appinstall-pulsar-pulsaros-demo-OK.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-03T22:45:01Z"
     },
     {
       "name": "appinstall-shot.png",
@@ -1033,6 +1041,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:46Z"
+    },
+    {
+      "name": "ic_launcher_round.png",
+      "size": 13054,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/ic_launcher_round.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-03T22:41:41Z"
     },
     {
       "name": "iccount.png",
