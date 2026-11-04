@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:29:47.357Z",
-  "count": 305,
+  "generated_at": "2026-11-04T20:30:19.539Z",
+  "count": 306,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1929,6 +1929,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:31Z"
+    },
+    {
+      "name": "pulsaros-optimizer.svg",
+      "size": 2039,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-optimizer.svg",
+      "release": "assets",
+      "content_type": "image/svg+xml",
+      "uploaded_at": "2026-11-04T20:30:16Z"
     },
     {
       "name": "responsive.png",
