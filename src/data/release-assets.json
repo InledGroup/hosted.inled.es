@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:26:33.744Z",
-  "count": 302,
+  "generated_at": "2026-11-04T20:28:01.761Z",
+  "count": 303,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -953,6 +953,14 @@
       "release": "assets",
       "content_type": "image/jpeg",
       "uploaded_at": "2026-09-06T21:06:42Z"
+    },
+    {
+      "name": "flydrop-logo-pulsaros-pulsar.png",
+      "size": 24312,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/flydrop-logo-pulsaros-pulsar.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-04T20:27:58Z"
     },
     {
       "name": "fundacionwebinled.es_.gif",
