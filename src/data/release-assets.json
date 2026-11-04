@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:36:05.436Z",
-  "count": 310,
+  "generated_at": "2026-11-04T20:36:36.075Z",
+  "count": 311,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1809,6 +1809,14 @@
       "release": "assets",
       "content_type": "image/gif",
       "uploaded_at": "2026-09-06T21:07:27Z"
+    },
+    {
+      "name": "pulsar-liquid-glass-pulsar-demos.mp4",
+      "size": 1618099,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-liquid-glass-pulsar-demos.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-04T20:36:33Z"
     },
     {
       "name": "pulsar-logo-full-sf.png",
