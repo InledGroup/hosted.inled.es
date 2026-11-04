@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:31:03.881Z",
-  "count": 307,
+  "generated_at": "2026-11-04T20:35:12.933Z",
+  "count": 308,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1841,6 +1841,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-11-04T20:26:31Z"
+    },
+    {
+      "name": "pulsar-vpn-static-pulsar-demos.png",
+      "size": 3737224,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-vpn-static-pulsar-demos.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-04T20:35:10Z"
     },
     {
       "name": "pulsar-vpn.svg",
