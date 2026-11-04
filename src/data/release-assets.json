@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:25:19.736Z",
-  "count": 301,
+  "generated_at": "2026-11-04T20:26:33.744Z",
+  "count": 302,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1825,6 +1825,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:30Z"
+    },
+    {
+      "name": "pulsar-phone-logo-pulsarphone.png",
+      "size": 7288,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-phone-logo-pulsarphone.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-04T20:26:31Z"
     },
     {
       "name": "pulsar-white-sf.png",
