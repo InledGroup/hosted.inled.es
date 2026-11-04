@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:28:01.761Z",
-  "count": 303,
+  "generated_at": "2026-11-04T20:29:22.170Z",
+  "count": 304,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1889,6 +1889,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:30Z"
+    },
+    {
+      "name": "pulsaros-firewall-pulsar.svg",
+      "size": 2021,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-firewall-pulsar.svg",
+      "release": "assets",
+      "content_type": "image/svg+xml",
+      "uploaded_at": "2026-11-04T20:29:19Z"
     },
     {
       "name": "pulsaros-golden-gate-background.png",
