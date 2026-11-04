@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:30:19.539Z",
-  "count": 306,
+  "generated_at": "2026-11-04T20:31:03.881Z",
+  "count": 307,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1921,6 +1921,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:31Z"
+    },
+    {
+      "name": "pulsaros-hblock.svg",
+      "size": 1205,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-hblock.svg",
+      "release": "assets",
+      "content_type": "image/svg+xml",
+      "uploaded_at": "2026-11-04T20:31:01Z"
     },
     {
       "name": "pulsaros-installer-logo.png",
