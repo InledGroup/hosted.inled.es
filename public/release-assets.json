@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T20:24:14.269Z",
-  "count": 300,
+  "generated_at": "2026-11-04T20:25:19.736Z",
+  "count": 301,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1849,6 +1849,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:31Z"
+    },
+    {
+      "name": "pulsar-windows-logo.svg",
+      "size": 1137,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-windows-logo.svg",
+      "release": "assets",
+      "content_type": "image/svg+xml",
+      "uploaded_at": "2026-11-04T20:25:16Z"
     },
     {
       "name": "pulsar-windows-pulsar-demos.mp4",
