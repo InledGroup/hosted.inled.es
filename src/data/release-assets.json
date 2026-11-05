@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-05T08:58:02.984Z",
-  "count": 314,
+  "generated_at": "2026-11-05T14:49:28.507Z",
+  "count": 315,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1841,6 +1841,14 @@
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-11-04T20:36:33Z"
+    },
+    {
+      "name": "pulsar-live-wallpaper-supra-demo.mp4",
+      "size": 67406012,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-live-wallpaper-supra-demo.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-05T14:49:18Z"
     },
     {
       "name": "pulsar-logo-full-sf.png",
