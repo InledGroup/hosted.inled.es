@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-05T17:09:40.028Z",
-  "count": 315,
+  "generated_at": "2026-11-05T22:44:33.028Z",
+  "count": 316,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1881,6 +1881,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-11-04T20:26:31Z"
+    },
+    {
+      "name": "pulsar-screenshot-demo5-nov-26-1.png",
+      "size": 4820304,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-screenshot-demo5-nov-26-1.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-05T20:56:15Z"
     },
     {
       "name": "pulsar-spotlight-pulsaros-demos.mp4",
