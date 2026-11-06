@@ -40,6 +40,7 @@ Host URL:   https://hosted.inled.es/cdn/openrouter-logo.svg
 | `--name nombre.ext` | Nombre con el que se sube el asset (debe incluir extensión). Por defecto, el nombre del archivo. Los espacios se convierten en `-`. |
 | `--repo owner/repo` | Repo destino. Por defecto `InledGroup/hosted.inled.es`. |
 | `--no-push` | Regenera el índice pero no hace commit ni push. |
+| `--progress` | Emite el progreso por stdout (`PROGRESS <pct>`) y al terminar `RESULT <url>` y `HOST <url>`. El resto de logs van a stderr. Lo usa el script de Nautilus. |
 
 ### Autenticación
 
@@ -60,3 +61,19 @@ Si por cualquier motivo necesitas reconstruir el índice de assets sin subir nad
 ```bash
 node scripts/generate-assets-index.js
 ```
+
+## Subir desde Nautilus (clic derecho)
+
+Instala el script en el menú contextual:
+
+```bash
+bash scripts/install-nautilus-extension.sh
+```
+
+Esto copia `scripts/nautilus-upload-hosted.sh` a `~/.local/share/nautilus/scripts/`. Después, al hacer clic derecho sobre un archivo en Nautilus:
+
+> Scripts ▸ Subir a hosted.inled.es
+
+Se abre un diálogo para elegir el nombre del asset, una ventana con la barra de progreso real de la subida y, al terminar, un mensaje con la Host URL (`https://hosted.inled.es/cdn/<nombre>`).
+
+Requisitos: `zenity`, `node`, `git` y un token de GitHub (`GITHUB_TOKEN` o `gh auth login`). Si la opción no aparece, reinicia Nautilus con `nautilus -q`.
