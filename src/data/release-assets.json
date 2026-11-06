@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-05T20:56:18.255Z",
-  "count": 316,
+  "generated_at": "2026-11-06T19:55:15.600Z",
+  "count": 317,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1809,6 +1809,14 @@
       "release": "assets",
       "content_type": "image/gif",
       "uploaded_at": "2026-09-06T21:07:27Z"
+    },
+    {
+      "name": "pulsar-demo-encryption-pulsaros.mp4",
+      "size": 33321,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-demo-encryption-pulsaros.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-06T19:55:12Z"
     },
     {
       "name": "pulsar-demo-touch-face-id.mp4",
