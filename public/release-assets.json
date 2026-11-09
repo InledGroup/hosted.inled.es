@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T07:32:40.027Z",
+  "generated_at": "2026-11-09T11:55:31.592Z",
   "count": 317,
   "assets": [
     {
@@ -508,11 +508,11 @@
     },
     {
       "name": "appinstall-pulsar-pulsaros-demo-OK.mp4",
-      "size": 33734574,
+      "size": 3274247,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/appinstall-pulsar-pulsaros-demo-OK.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-03T22:45:01Z"
+      "uploaded_at": "2026-11-09T11:54:30Z"
     },
     {
       "name": "appinstall-shot.png",
@@ -1820,43 +1820,43 @@
     },
     {
       "name": "pulsar-demo-touch-face-id.mp4",
-      "size": 36000058,
+      "size": 8322213,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-demo-touch-face-id.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:50:09Z"
+      "uploaded_at": "2026-11-09T11:54:12Z"
     },
     {
       "name": "pulsar-firewall-pulsar-demos.mp4",
-      "size": 2753442,
+      "size": 397943,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-firewall-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:37:38Z"
+      "uploaded_at": "2026-11-09T11:54:51Z"
     },
     {
       "name": "pulsar-global-menu-pulsar-demos.mp4",
-      "size": 375905,
+      "size": 89179,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-global-menu-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:37:18Z"
+      "uploaded_at": "2026-11-09T11:53:30Z"
     },
     {
       "name": "pulsar-liquid-glass-pulsar-demos.mp4",
-      "size": 1618099,
+      "size": 600187,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-liquid-glass-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:36:33Z"
+      "uploaded_at": "2026-11-09T11:54:37Z"
     },
     {
       "name": "pulsar-live-wallpaper-supra-demo.mp4",
-      "size": 67406012,
+      "size": 4316841,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-live-wallpaper-supra-demo.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-05T14:49:18Z"
+      "uploaded_at": "2026-11-09T11:54:22Z"
     },
     {
       "name": "pulsar-logo-full-sf.png",
@@ -1956,11 +1956,11 @@
     },
     {
       "name": "pulsar-windows-pulsar-demos.mp4",
-      "size": 3777917,
+      "size": 758007,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-windows-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:24:11Z"
+      "uploaded_at": "2026-11-09T11:54:58Z"
     },
     {
       "name": "pulsar12-background.png",
@@ -2012,11 +2012,11 @@
     },
     {
       "name": "pulsaros-notch-pulsar-demos.mp4",
-      "size": 589140,
+      "size": 288303,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-notch-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
-      "uploaded_at": "2026-11-04T20:36:02Z"
+      "uploaded_at": "2026-11-09T11:54:44Z"
     },
     {
       "name": "pulsaros-optimizer.svg",
