@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T11:55:31.592Z",
-  "count": 317,
+  "generated_at": "2026-11-09T12:17:08.178Z",
+  "count": 335,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -507,6 +507,14 @@
       "uploaded_at": "2026-09-06T21:06:28Z"
     },
     {
+      "name": "app-store.webp",
+      "size": 2779302,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/app-store.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:09Z"
+    },
+    {
       "name": "appinstall-pulsar-pulsaros-demo-OK.mp4",
       "size": 3274247,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/appinstall-pulsar-pulsaros-demo-OK.mp4",
@@ -737,6 +745,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:36Z"
+    },
+    {
+      "name": "circle-to-search.webp",
+      "size": 980190,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/circle-to-search.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:16Z"
     },
     {
       "name": "cleany.png",
@@ -1667,6 +1683,14 @@
       "uploaded_at": "2026-09-06T21:07:19Z"
     },
     {
+      "name": "nautilus-providers.webp",
+      "size": 1063606,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/nautilus-providers.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:22Z"
+    },
+    {
       "name": "new-agent-tunnel.png",
       "size": 5805137,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/new-agent-tunnel.png",
@@ -1819,12 +1843,28 @@
       "uploaded_at": "2026-11-06T19:55:12Z"
     },
     {
+      "name": "pulsar-demo-encryption-pulsaros.webp",
+      "size": 173870,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-demo-encryption-pulsaros.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:28Z"
+    },
+    {
       "name": "pulsar-demo-touch-face-id.mp4",
       "size": 8322213,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-demo-touch-face-id.mp4",
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-11-09T11:54:12Z"
+    },
+    {
+      "name": "pulsar-demo-touch-face-id.webp",
+      "size": 4901980,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-demo-touch-face-id.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:35Z"
     },
     {
       "name": "pulsar-firewall-pulsar-demos.mp4",
@@ -1835,12 +1875,28 @@
       "uploaded_at": "2026-11-09T11:54:51Z"
     },
     {
+      "name": "pulsar-firewall-pulsar-demos.webp",
+      "size": 4487588,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-firewall-pulsar-demos.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:42Z"
+    },
+    {
       "name": "pulsar-global-menu-pulsar-demos.mp4",
       "size": 89179,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-global-menu-pulsar-demos.mp4",
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-11-09T11:53:30Z"
+    },
+    {
+      "name": "pulsar-global-menu-pulsar-demos.webp",
+      "size": 1679628,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-global-menu-pulsar-demos.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:49Z"
     },
     {
       "name": "pulsar-liquid-glass-pulsar-demos.mp4",
@@ -1851,12 +1907,28 @@
       "uploaded_at": "2026-11-09T11:54:37Z"
     },
     {
+      "name": "pulsar-liquid-glass-pulsar-demos.webp",
+      "size": 6316850,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-liquid-glass-pulsar-demos.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:15:56Z"
+    },
+    {
       "name": "pulsar-live-wallpaper-supra-demo.mp4",
       "size": 4316841,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-live-wallpaper-supra-demo.mp4",
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-11-09T11:54:22Z"
+    },
+    {
+      "name": "pulsar-live-wallpaper-supra-demo.webp",
+      "size": 6896268,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-live-wallpaper-supra-demo.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:03Z"
     },
     {
       "name": "pulsar-logo-full-sf.png",
@@ -1963,6 +2035,14 @@
       "uploaded_at": "2026-11-09T11:54:58Z"
     },
     {
+      "name": "pulsar-windows-pulsar-demos.webp",
+      "size": 13623392,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-windows-pulsar-demos.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:11Z"
+    },
+    {
       "name": "pulsar12-background.png",
       "size": 2836799,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar12-background.png",
@@ -2019,12 +2099,36 @@
       "uploaded_at": "2026-11-09T11:54:44Z"
     },
     {
+      "name": "pulsaros-notch-pulsar-demos.webp",
+      "size": 6638830,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-notch-pulsar-demos.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:19Z"
+    },
+    {
       "name": "pulsaros-optimizer.svg",
       "size": 2039,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsaros-optimizer.svg",
       "release": "assets",
       "content_type": "image/svg+xml",
       "uploaded_at": "2026-11-04T20:30:16Z"
+    },
+    {
+      "name": "recovery.webp",
+      "size": 1398982,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/recovery.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:25Z"
+    },
+    {
+      "name": "remap-live-wallpaper.webp",
+      "size": 4851206,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/remap-live-wallpaper.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:33Z"
     },
     {
       "name": "responsive.png",
@@ -2091,6 +2195,14 @@
       "uploaded_at": "2026-09-07T19:42:25Z"
     },
     {
+      "name": "sayri.webp",
+      "size": 5907524,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/sayri.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:39Z"
+    },
+    {
       "name": "screenshot-annotator-2.png",
       "size": 585395,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/screenshot-annotator-2.png",
@@ -2139,12 +2251,28 @@
       "uploaded_at": "2026-09-06T21:07:35Z"
     },
     {
+      "name": "session-restore.webp",
+      "size": 1303478,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/session-restore.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:46Z"
+    },
+    {
       "name": "share-bytelloespanol-1.png",
       "size": 93394,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/share-bytelloespanol-1.png",
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:35Z"
+    },
+    {
+      "name": "spotlight.webp",
+      "size": 828752,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/spotlight.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:52Z"
     },
     {
       "name": "start-mayo-glass-neumorphism.png",
@@ -2323,6 +2451,14 @@
       "uploaded_at": "2026-09-06T21:07:47Z"
     },
     {
+      "name": "time-machine.webp",
+      "size": 4407012,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/time-machine.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:16:59Z"
+    },
+    {
       "name": "tube-os-simple-sf.png",
       "size": 1352667,
       "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/tube-os-simple-sf.png",
@@ -2481,6 +2617,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:54Z"
+    },
+    {
+      "name": "window-mode.webp",
+      "size": 1499624,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/window-mode.webp",
+      "release": "assets",
+      "content_type": "image/webp",
+      "uploaded_at": "2026-11-09T12:17:05Z"
     },
     {
       "name": "windows-11-image-microsoft.png",
