@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T17:27:31.242Z",
-  "count": 335,
+  "generated_at": "2026-11-13T21:40:08.585Z",
+  "count": 336,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1953,6 +1953,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:30Z"
+    },
+    {
+      "name": "pulsar-pc-cool.mp4",
+      "size": 304975,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/pulsar-pc-cool.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-13T21:40:05Z"
     },
     {
       "name": "pulsar-phone-logo-pulsarphone.png",
