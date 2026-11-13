@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T21:40:08.585Z",
-  "count": 336,
+  "generated_at": "2026-11-13T22:25:56.039Z",
+  "count": 337,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -857,6 +857,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:38Z"
+    },
+    {
+      "name": "demo-inled.mp4",
+      "size": 30261461,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/demo-inled.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-13T22:25:53Z"
     },
     {
       "name": "demoweby.mp4",
