@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-17T08:44:13.494Z",
-  "count": 337,
+  "generated_at": "2026-11-17T14:03:22.022Z",
+  "count": 338,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -881,6 +881,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:39Z"
+    },
+    {
+      "name": "discordtranslate-demo-discord-translate.mp4",
+      "size": 27247343,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/discordtranslate-demo-discord-translate.mp4",
+      "release": "assets",
+      "content_type": "video/mp4",
+      "uploaded_at": "2026-11-17T14:03:19Z"
     },
     {
       "name": "dream.build.png",
