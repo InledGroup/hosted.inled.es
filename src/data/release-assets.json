@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-17T14:10:07.486Z",
-  "count": 339,
+  "generated_at": "2026-11-17T16:24:11.834Z",
+  "count": 340,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1217,6 +1217,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:50Z"
+    },
+    {
+      "name": "inled-ring-v2-logo.png",
+      "size": 520798,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/inled-ring-v2-logo.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-17T16:24:08Z"
     },
     {
       "name": "inled.es-en-dsign.gif",
