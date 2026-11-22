@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T16:06:49.020Z",
-  "count": 342,
+  "generated_at": "2026-11-22T16:08:09.629Z",
+  "count": 343,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -977,6 +977,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:06:42Z"
+    },
+    {
+      "name": "excel-demo-insuite.png",
+      "size": 241740,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/excel-demo-insuite.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-22T16:08:06Z"
     },
     {
       "name": "favicon.png",
