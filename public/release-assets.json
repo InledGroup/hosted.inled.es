@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T16:11:07.434Z",
-  "count": 347,
+  "generated_at": "2026-11-22T16:11:22.674Z",
+  "count": 348,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -2313,6 +2313,14 @@
       "release": "assets",
       "content_type": "video/mp4",
       "uploaded_at": "2026-11-18T21:27:00Z"
+    },
+    {
+      "name": "seafari-v3-demo.png",
+      "size": 657656,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/seafari-v3-demo.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-22T16:11:20Z"
     },
     {
       "name": "seafari.png",
