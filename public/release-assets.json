@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T16:10:47.680Z",
-  "count": 346,
+  "generated_at": "2026-11-22T16:11:07.434Z",
+  "count": 347,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -1729,6 +1729,14 @@
       "release": "assets",
       "content_type": "image/svg+xml",
       "uploaded_at": "2026-09-06T21:07:19Z"
+    },
+    {
+      "name": "mypdf-demo-insuite.png",
+      "size": 360341,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/mypdf-demo-insuite.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-22T16:11:04Z"
     },
     {
       "name": "mypdf-shot.png",
