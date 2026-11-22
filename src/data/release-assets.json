@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T09:26:13.392Z",
-  "count": 341,
+  "generated_at": "2026-11-22T16:06:49.020Z",
+  "count": 342,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -2721,6 +2721,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:55Z"
+    },
+    {
+      "name": "word-demo-insuite.png",
+      "size": 202855,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/word-demo-insuite.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-22T16:06:46Z"
     },
     {
       "name": "ziziyi-office-insuite.png",
