@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-23T13:28:16.637Z",
-  "count": 348,
+  "generated_at": "2026-11-23T20:49:58.889Z",
+  "count": 349,
   "assets": [
     {
       "name": "0-codigo-md.gif",
@@ -2217,6 +2217,14 @@
       "release": "assets",
       "content_type": "image/png",
       "uploaded_at": "2026-09-06T21:07:31Z"
+    },
+    {
+      "name": "resymbian-logo-symbian-horizontal.png",
+      "size": 1411921,
+      "url": "https://github.com/InledGroup/hosted.inled.es/releases/download/assets/resymbian-logo-symbian-horizontal.png",
+      "release": "assets",
+      "content_type": "image/png",
+      "uploaded_at": "2026-11-23T20:49:56Z"
     },
     {
       "name": "ring-full.svg",
